@@ -1,5 +1,6 @@
 #include "Stack.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 Stack CreateStack()
 {
@@ -10,22 +11,66 @@ Stack CreateStack()
 
 int GetNumTecla(Stack *stack)
 {
+    if (stack->size == 0)
+    {
+        return -1;
+    }
+
     return stack->ultima->numTecla;
 }
 
 void InsertTecla(Stack *stack, int numTecla)
 {
     // Crear ultima tecla tocada
-    Tecla tecla = {.anterior = stack->ultima, .numTecla = numTecla};
+    Tecla *tecla = malloc(sizeof(Tecla));
+    tecla->siguiente = NULL;
+    tecla->numTecla = numTecla;
+
+    // Linkear penultima tecla con ultima
+    if (stack->size > 0)
+    {
+        tecla->anterior = stack->ultima;
+        stack->ultima->siguiente = tecla;
+    }
 
     // Poner tecla como ultima
-    stack->ultima = &tecla;
+    stack->ultima = tecla;
+
+    stack->size++;
+    printf("Tecla %d Presionada\n", numTecla);
 }
 
 void RemoveTecla(Stack *stack, int numTecla)
 {
-    for (int i = 0; i < stack->size; i++)
+    for (Tecla *tecla = stack->ultima; tecla != NULL; tecla = tecla->anterior)
     {
-        /* code */
+        if (tecla->numTecla == numTecla)
+        {
+            // Ultima tecla
+            if (tecla == stack->ultima)
+            {
+                if (tecla->anterior != NULL)
+                    tecla->anterior->siguiente = NULL;
+                stack->ultima = tecla->anterior;
+            }
+            // primera tecla
+            else if (tecla->anterior == NULL)
+            {
+                tecla->siguiente->anterior = NULL;
+            }
+            // Tecla en el medio
+            else
+            {
+                tecla->anterior->siguiente = tecla->siguiente;
+                tecla->siguiente->anterior = tecla->anterior;
+            }
+
+            free(tecla);
+
+            stack->size--;
+            printf("Tecla %d Soltada\n", numTecla);
+
+            return;
+        }
     }
 }
