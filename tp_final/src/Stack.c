@@ -1,6 +1,5 @@
 #include "Stack.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 Stack CreateStack()
 {
@@ -37,7 +36,6 @@ void InsertTecla(Stack *stack, int numTecla)
     stack->ultima = tecla;
 
     stack->size++;
-    printf("Tecla %d Presionada\n", numTecla);
 }
 
 void RemoveTecla(Stack *stack, int numTecla)
@@ -68,7 +66,6 @@ void RemoveTecla(Stack *stack, int numTecla)
             free(tecla);
 
             stack->size--;
-            printf("Tecla %d Soltada\n", numTecla);
 
             return;
         }
