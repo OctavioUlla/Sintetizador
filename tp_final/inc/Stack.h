@@ -3,9 +3,10 @@
 typedef struct Stack
 {
     Tecla *ultima;
-    int size = 0;
+    int size;
 } Stack;
 
+Stack CreateStack();
 int GetNumTecla(Stack *stack);
 void InsertTecla(Stack *stack, int numTecla);
 void RemoveTecla(Stack *stack, int numTecla);
