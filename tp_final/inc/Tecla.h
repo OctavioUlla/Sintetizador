@@ -1,5 +1,6 @@
 typedef struct Tecla
 {
-    Tecla *anterior;
+    struct Tecla *anterior;
+    struct Tecla *siguiente;
     int numTecla;
 } Tecla;
