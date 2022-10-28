@@ -145,7 +145,7 @@ void cfgDMA(){
 }
 void makeSignals(){
 	uint16_t i;
-	unit16_t pendiente = DACSIZE/TRANSFERSIZE;
+	uint16_t pendiente = DACSIZE/TRANSFERSIZE;
 
 	for(i=0;i<TRANSFERSIZE;i++){
 		if(i<TRANSFERSIZE/2){
