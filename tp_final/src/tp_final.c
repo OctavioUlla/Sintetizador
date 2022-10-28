@@ -24,7 +24,8 @@ void cfgDAC();
 void cfgDMA();
 void makeSignals();
 
-#define TRANSFERSIZE  ((2048))
+#define TRANSFERSIZE  ((256))
+#define DACSIZE  ((1024))
 #define CANTIDADSGNLS  ((3))
 /* Flag que indica que señal se esta usando:
  * - s para sierra
@@ -144,15 +145,17 @@ void cfgDMA(){
 }
 void makeSignals(){
 	uint16_t i;
+	unit16_t pendiente = DACSIZE/TRANSFERSIZE;
+
 	for(i=0;i<TRANSFERSIZE;i++){
 		if(i<TRANSFERSIZE/2){
 			sgnRect[i]=0;
-			sgnTriang[i]=i;
+			sgnTriang[i]=i*pendiente*2;
 		}else{
-			sgnRect[i]=TRANSFERSIZE/2;
-			sgnTriang[i]=TRANSFERSIZE-i;
+			sgnRect[i]=DACSIZE-1;
+			sgnTriang[i]=(TRANSFERSIZE-i-1)*pendiente*2;
 		}
-		sgnSierra[i]=i/2;
+		sgnSierra[i]=i*pendiente;
 	}
 }
 
