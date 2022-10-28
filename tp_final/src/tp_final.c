@@ -25,6 +25,7 @@ void cfgDMA();
 void makeSignals();
 
 #define TRANSFERSIZE  ((2048))
+#define CANTIDADSGNLS  ((3))
 /* Flag que indica que señal se esta usando:
  * - s para sierra
  * - t para triangular
@@ -32,9 +33,11 @@ void makeSignals();
 	*/
 char sgnflag = 'r';
 // Arreglos donde se guardan las formas de onda
-uint16_t sgnRect[TRANSFERSIZE];
-uint16_t sgnTriang[TRANSFERSIZE];
-uint16_t sgnSierra[TRANSFERSIZE];
+uint16_t sgnRect[TRANSFERSIZE]; // 0
+uint16_t sgnTriang[TRANSFERSIZE]; // 1
+uint16_t sgnSierra[TRANSFERSIZE]; // 2
+// Entero para seleccionar la senial
+uint8_t sgnActual = 0;
 
 
 int main(void) {
@@ -51,6 +54,7 @@ int main(void) {
 	 * y empiece a pedir datos(HABILIAR LAS REQ DEL CANAL 0 del DMA) cuando se presiona un tecla, y que el DMA deje de recibir
 	 * requests cuando se levanta la tecla
 */
+	while(1);
     return 0 ;
 }
 
@@ -149,6 +153,20 @@ void makeSignals(){
 			sgnTriang[i]=TRANSFERSIZE-i;
 		}
 		sgnSierra[i]=i/2;
+	}
+}
+
+void EINT0_IRQHandler(void){
+	sgnActual--;
+	if(sgnActual<0){
+		sgnActual=CANTIDADSGNLS-1;
+	}
+}
+
+void EINT1_IRQHandler(void){
+	sgnActual++;
+	if(sgnActual==CANTIDADSGNLS){
+		sgnActual=0;
 	}
 }
 
