@@ -38,7 +38,7 @@ uint16_t sgnSierra[TRANSFERSIZE];
 
 
 int main(void) {
-	//makeSignals();
+	makeSignals();
 	cfgPines();
 	cfgDAC();
 	cfgDMA();
@@ -137,7 +137,27 @@ void cfgDMA(){
 		dac.Pinmode = 2;
 		dac.OpenDrain = PINSEL_PINMODE_NORMAL;
 	PINSEL_ConfigPin(&dac); // Se prende el DAC
-
-
-
 }
+void makeSignals(){
+	uint16_t i;
+	for(i=0;i<TRANSFERSIZE;i++){
+		if(i<TRANSFERSIZE/2){
+			sgnRect[i]=0;
+			sgnTriang[i]=i;
+		}else{
+			sgnRect[i]=TRANSFERSIZE/2;
+			sgnTriang[i]=TRANSFERSIZE-i;
+		}
+		sgnSierra[i]=i/2;
+	}
+}
+
+
+
+
+
+
+
+
+
+
