@@ -1,0 +1,4 @@
+../src/Stack.c:4:7:CreateStack	24	static
+../src/Stack.c:11:5:GetNumTecla	16	static
+../src/Stack.c:21:6:InsertTecla	24	static
+../src/Stack.c:41:6:RemoveTecla	24	static

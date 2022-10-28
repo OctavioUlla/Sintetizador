@@ -43,7 +43,7 @@ main-build: tp_final.axf
 tp_final.axf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"/home/avig/Documents/MCUXpresso_11.6.0_8187/TRABAJO_FINAL/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="tp_final.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "tp_final_Debug.ld" -o "tp_final.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"/home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="tp_final.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "tp_final_Debug.ld" -o "tp_final.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

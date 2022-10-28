@@ -2,3 +2,4 @@
 ../src/tp_final.c:58:6:cfgPines	32	static
 ../src/tp_final.c:99:6:cfgDAC	16	static
 ../src/tp_final.c:112:6:cfgDMA	72	static
+../src/tp_final.c:141:6:makeSignals	16	static
