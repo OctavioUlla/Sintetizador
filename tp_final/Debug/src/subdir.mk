@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/Botones.c \
 ../src/Config.c \
 ../src/Stack.c \
 ../src/cr_startup_lpc175x_6x.c \
@@ -11,6 +12,7 @@ C_SRCS += \
 ../src/tp_final.c 
 
 C_DEPS += \
+./src/Botones.d \
 ./src/Config.d \
 ./src/Stack.d \
 ./src/cr_startup_lpc175x_6x.d \
@@ -18,6 +20,7 @@ C_DEPS += \
 ./src/tp_final.d 
 
 OBJS += \
+./src/Botones.o \
 ./src/Config.o \
 ./src/Stack.o \
 ./src/cr_startup_lpc175x_6x.o \
@@ -37,7 +40,7 @@ src/%.o: ../src/%.c src/subdir.mk
 clean: clean-src
 
 clean-src:
-	-$(RM) ./src/Config.d ./src/Config.o ./src/Stack.d ./src/Stack.o ./src/cr_startup_lpc175x_6x.d ./src/cr_startup_lpc175x_6x.o ./src/crp.d ./src/crp.o ./src/tp_final.d ./src/tp_final.o
+	-$(RM) ./src/Botones.d ./src/Botones.o ./src/Config.d ./src/Config.o ./src/Stack.d ./src/Stack.o ./src/cr_startup_lpc175x_6x.d ./src/cr_startup_lpc175x_6x.o ./src/crp.d ./src/crp.o ./src/tp_final.d ./src/tp_final.o
 
 .PHONY: clean-src
 
