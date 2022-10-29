@@ -18,34 +18,27 @@
 
 #include <stdio.h>
 
-// TODO: insert other definitions and declarations here
-void cfgPines();
-void cfgDAC();
-void cfgDMA();
-void makeSignals();
+#include "Config.h"
 
-#define TRANSFERSIZE  ((256))
-#define DACSIZE  ((1024))
+// TODO: insert other definitions and declarations here
+
 #define CANTIDADSGNLS  ((3))
-/* Flag que indica que señal se esta usando:
- * - s para sierra
- * - t para triangular
- * - r para rectangula
-	*/
-char sgnflag = 'r';
+
 // Arreglos donde se guardan las formas de onda
 uint16_t sgnRect[TRANSFERSIZE]; // 0
 uint16_t sgnTriang[TRANSFERSIZE]; // 1
 uint16_t sgnSierra[TRANSFERSIZE]; // 2
-// Entero para seleccionar la senial
+// Entero para seleccionar la señal
 uint8_t sgnActual = 0;
-
+uint8_t octActual = 4;
+// Arreglo de las 13 notas inicializado en la 4ta Octava
+uint16_t notas[13]= {262,277,294,311,330,349,370,392,415,440,466,494,523};
 
 int main(void) {
-	makeSignals();
+	makeSignals(sgnRect, sgnTriang, sgnSierra);
 	cfgPines();
 	cfgDAC();
-	cfgDMA();
+	cfgDMA(sgnRect);
 
 	/* TODO:
 	 *
@@ -100,64 +93,7 @@ void cfgPines(){
 
 }
 
-// Funcion que configura el DMA
-void cfgDAC(){
-	DAC_Init(LPC_DAC);
 
-	// Se configura el DAC
-	DAC_CONVERTER_CFG_Type daccfg;
-	daccfg.CNT_ENA = 1; // Se habilita el timeout counter
-	daccfg.DBLBUF_ENA = 0; // Se deshabilita el doble buffereo
-	daccfg.DMA_ENA = 1; // Se habilita las request a DMA
-	DAC_ConfigDAConverterControl(LPC_DAC,&daccfg);
-
-}
-
-// Funcion que configura el DMA y prend el DMA
-void cfgDMA(){
-	GPDMA_Init();
-	// Se inicializa el DMA apuntando a la lista de la señal rectangula
-	GPDMA_LLI_Type lista;
-	lista.NextLLI = (uint32_t) &lista;
-	lista.SrcAddr = (uint32_t) sgnRect[0];
-	lista.DstAddr = (uint32_t) &(LPC_DAC ->DACR);
-	lista.Control = TRANSFERSIZE | (1 << 18) | ( 1 << 21);
-
-	GPDMA_Channel_CFG_Type dmacfg;
-	dmacfg.ChannelNum = 0;
-	dmacfg.TransferSize = TRANSFERSIZE;
-	dmacfg.TransferType = GPDMA_TRANSFERTYPE_M2P;
-	dmacfg.SrcMemAddr = (uint32_t) lista.SrcAddr;
-	dmacfg.DstConn = GPDMA_CONN_DAC;
-	dmacfg.DMALLI = (uint32_t) &lista;
-
-	GPDMA_Setup(&dmacfg);
-	GPDMA_ChannelCmd(0,DISABLE);
-	// Se desactiva la interrupcion para que el dac no comience a pedir datos
-
-	// Se configura el puerto 0.26 como AOUT
-		PINSEL_CFG_Type dac;
-		dac.Portnum = 0;
-		dac.Pinnum = 26;
-		dac.Pinmode = 2;
-		dac.OpenDrain = PINSEL_PINMODE_NORMAL;
-	PINSEL_ConfigPin(&dac); // Se prende el DAC
-}
-void makeSignals(){
-	uint16_t i;
-	uint16_t pendiente = DACSIZE/TRANSFERSIZE;
-
-	for(i=0;i<TRANSFERSIZE;i++){
-		if(i<TRANSFERSIZE/2){
-			sgnRect[i]=0;
-			sgnTriang[i]=i*pendiente*2;
-		}else{
-			sgnRect[i]=DACSIZE-1;
-			sgnTriang[i]=(TRANSFERSIZE-i-1)*pendiente*2;
-		}
-		sgnSierra[i]=i*pendiente;
-	}
-}
 
 void EINT0_IRQHandler(void){
 	sgnActual--;
@@ -172,6 +108,25 @@ void EINT1_IRQHandler(void){
 		sgnActual=0;
 	}
 }
+
+void EINT2_IRQHandler(void){
+	if(octActual>=0){
+		octActual--;
+			for(int i = 0;i<13;i++){
+				notas[i]/=2;
+			}
+	}
+}
+
+void EINT3_IRQHandler(void){
+	if(octActual<8){
+		octActual++;
+			for(int i = 0;i<13;i++){
+				notas[i]*=2;
+			}
+	}
+}
+
 
 
 

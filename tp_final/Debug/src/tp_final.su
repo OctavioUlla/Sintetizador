@@ -1,7 +1,6 @@
-../src/tp_final.c:44:5:main	8	static
-../src/tp_final.c:63:6:cfgPines	32	static
-../src/tp_final.c:104:6:cfgDAC	16	static
-../src/tp_final.c:117:6:cfgDMA	72	static
-../src/tp_final.c:146:6:makeSignals	16	static
-../src/tp_final.c:162:6:EINT0_IRQHandler	4	static
-../src/tp_final.c:169:6:EINT1_IRQHandler	4	static
+../src/tp_final.c:37:5:main	8	static
+../src/tp_final.c:56:6:cfgPines	32	static
+../src/tp_final.c:98:6:EINT0_IRQHandler	4	static
+../src/tp_final.c:105:6:EINT1_IRQHandler	4	static
+../src/tp_final.c:112:6:EINT2_IRQHandler	16	static
+../src/tp_final.c:121:6:EINT3_IRQHandler	16	static

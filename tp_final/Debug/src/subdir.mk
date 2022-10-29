@@ -4,18 +4,21 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/Config.c \
 ../src/Stack.c \
 ../src/cr_startup_lpc175x_6x.c \
 ../src/crp.c \
 ../src/tp_final.c 
 
 C_DEPS += \
+./src/Config.d \
 ./src/Stack.d \
 ./src/cr_startup_lpc175x_6x.d \
 ./src/crp.d \
 ./src/tp_final.d 
 
 OBJS += \
+./src/Config.o \
 ./src/Stack.o \
 ./src/cr_startup_lpc175x_6x.o \
 ./src/crp.o \
@@ -34,7 +37,7 @@ src/%.o: ../src/%.c src/subdir.mk
 clean: clean-src
 
 clean-src:
-	-$(RM) ./src/Stack.d ./src/Stack.o ./src/cr_startup_lpc175x_6x.d ./src/cr_startup_lpc175x_6x.o ./src/crp.d ./src/crp.o ./src/tp_final.d ./src/tp_final.o
+	-$(RM) ./src/Config.d ./src/Config.o ./src/Stack.d ./src/Stack.o ./src/cr_startup_lpc175x_6x.d ./src/cr_startup_lpc175x_6x.o ./src/crp.d ./src/crp.o ./src/tp_final.d ./src/tp_final.o
 
 .PHONY: clean-src
 

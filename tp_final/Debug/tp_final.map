@@ -3,17 +3,17 @@ Archive member included to satisfy reference by file (symbol)
 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
                               ./src/cr_startup_lpc175x_6x.o (SystemInit)
 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                              ./src/tp_final.o (DAC_Init)
+                              ./src/Config.o (DAC_Init)
 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
                               ./src/tp_final.o (EXTI_Config)
 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                              ./src/tp_final.o (GPDMA_Init)
+                              ./src/Config.o (GPDMA_Init)
 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
                               ./src/tp_final.o (GPIO_IntCmd)
 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
                               /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o) (check_failed)
 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
-                              ./src/tp_final.o (PINSEL_ConfigPin)
+                              ./src/Config.o (PINSEL_ConfigPin)
 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
                               /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o) (CLKPWR_ConfigPPWR)
 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
@@ -41,6 +41,27 @@ Archive member included to satisfy reference by file (symbol)
 
 Discarded input sections
 
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .group         0x0000000000000000        0xc ./src/Config.o
+ .text          0x0000000000000000        0x0 ./src/Config.o
+ .data          0x0000000000000000        0x0 ./src/Config.o
+ .bss           0x0000000000000000        0x0 ./src/Config.o
  .group         0x0000000000000000        0xc ./src/Stack.o
  .group         0x0000000000000000        0xc ./src/Stack.o
  .group         0x0000000000000000        0xc ./src/Stack.o
@@ -101,13 +122,28 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./src/tp_final.o
  .group         0x0000000000000000        0xc ./src/tp_final.o
  .group         0x0000000000000000        0xc ./src/tp_final.o
+ .group         0x0000000000000000        0xc ./src/tp_final.o
  .text          0x0000000000000000        0x0 ./src/tp_final.o
  .data          0x0000000000000000        0x0 ./src/tp_final.o
  .bss           0x0000000000000000        0x0 ./src/tp_final.o
- .data.sgnflag  0x0000000000000000        0x1 ./src/tp_final.o
  .debug_macro   0x0000000000000000      0xa7e ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x1c ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x2e ./src/tp_final.o
  .debug_macro   0x0000000000000000       0x10 ./src/tp_final.o
  .debug_macro   0x0000000000000000      0x12e ./src/tp_final.o
+ .debug_macro   0x0000000000000000      0x5b3 ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x18 ./src/tp_final.o
+ .debug_macro   0x0000000000000000      0x7af ./src/tp_final.o
+ .debug_macro   0x0000000000000000      0x2c7 ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x63 ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x3a ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0xea ./src/tp_final.o
+ .debug_macro   0x0000000000000000      0x145 ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x46 ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x22 ./src/tp_final.o
+ .debug_macro   0x0000000000000000      0x2ae ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x82 ./src/tp_final.o
+ .debug_macro   0x0000000000000000       0x16 ./src/tp_final.o
  .group         0x0000000000000000        0xc /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
  .group         0x0000000000000000        0xc /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
  .group         0x0000000000000000        0xc /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
@@ -494,6 +530,7 @@ RamAHB32         0x000000002007c000 0x0000000000008000 xrw
 
 Linker script and memory map
 
+LOAD ./src/Config.o
 LOAD ./src/Stack.o
 LOAD ./src/cr_startup_lpc175x_6x.o
 LOAD ./src/crp.o
@@ -517,7 +554,7 @@ END GROUP
                 0x0000000020084000                __top_RamAHB32 = 0x20084000
                 0x0000000020084000                __top_RAM2 = 0x20084000
 
-.text           0x0000000000000000      0xaf0
+.text           0x0000000000000000      0xba8
  FILL mask 0xff
                 0x0000000000000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -526,15 +563,15 @@ END GROUP
                 0x00000000000000cc                . = ALIGN (0x4)
                 0x00000000000000cc                __section_table_start = .
                 0x00000000000000cc                __data_section_table = .
-                0x00000000000000cc        0x4 LONG 0xaf0 LOADADDR (.data)
+                0x00000000000000cc        0x4 LONG 0xba8 LOADADDR (.data)
                 0x00000000000000d0        0x4 LONG 0x10000000 ADDR (.data)
-                0x00000000000000d4        0x4 LONG 0x20 SIZEOF (.data)
-                0x00000000000000d8        0x4 LONG 0xaf0 LOADADDR (.data_RAM2)
+                0x00000000000000d4        0x4 LONG 0x40 SIZEOF (.data)
+                0x00000000000000d8        0x4 LONG 0xba8 LOADADDR (.data_RAM2)
                 0x00000000000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x00000000000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x00000000000000e4                __data_section_table_end = .
                 0x00000000000000e4                __bss_section_table = .
-                0x00000000000000e4        0x4 LONG 0x10000020 ADDR (.bss)
+                0x00000000000000e4        0x4 LONG 0x10000040 ADDR (.bss)
                 0x00000000000000e8        0x4 LONG 0x604 SIZEOF (.bss)
                 0x00000000000000ec        0x4 LONG 0x2007c000 ADDR (.bss_RAM2)
                 0x00000000000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
@@ -561,9 +598,7 @@ END GROUP
                 0x000000000000021e                USBActivity_IRQHandler
                 0x000000000000021e                PWM1_IRQHandler
                 0x000000000000021e                I2C1_IRQHandler
-                0x000000000000021e                EINT2_IRQHandler
                 0x000000000000021e                UART1_IRQHandler
-                0x000000000000021e                EINT3_IRQHandler
                 0x000000000000021e                CANActivity_IRQHandler
                 0x000000000000021e                TIMER3_IRQHandler
                 0x000000000000021e                UART0_IRQHandler
@@ -598,112 +633,118 @@ END GROUP
                 0x0000000000000300                PROVIDE (__CRP_WORD_END__ = .)
                 0x0000000000000001                ASSERT (! ((__CRP_WORD_START__ == __CRP_WORD_END__)), Linker CRP Enabled, but no CRP_WORD provided within application)
  *(.text*)
- .text.main     0x0000000000000300       0x16 ./src/tp_final.o
-                0x0000000000000300                main
- .text.cfgPines
-                0x0000000000000316       0xc8 ./src/tp_final.o
-                0x0000000000000316                cfgPines
- *fill*         0x00000000000003de        0x2 ff
- .text.cfgDAC   0x00000000000003e0       0x30 ./src/tp_final.o
-                0x00000000000003e0                cfgDAC
- .text.cfgDMA   0x0000000000000410       0x78 ./src/tp_final.o
-                0x0000000000000410                cfgDMA
+ .text.cfgDAC   0x0000000000000300       0x30 ./src/Config.o
+                0x0000000000000300                cfgDAC
+ .text.cfgDMA   0x0000000000000330       0x78 ./src/Config.o
+                0x0000000000000330                cfgDMA
  .text.makeSignals
-                0x0000000000000488       0x98 ./src/tp_final.o
-                0x0000000000000488                makeSignals
+                0x00000000000003a8       0x9a ./src/Config.o
+                0x00000000000003a8                makeSignals
+ *fill*         0x0000000000000442        0x2 ff
+ .text.main     0x0000000000000444       0x2c ./src/tp_final.o
+                0x0000000000000444                main
+ .text.cfgPines
+                0x0000000000000470       0xc8 ./src/tp_final.o
+                0x0000000000000470                cfgPines
  .text.EINT0_IRQHandler
-                0x0000000000000520       0x1c ./src/tp_final.o
-                0x0000000000000520                EINT0_IRQHandler
+                0x0000000000000538       0x1c ./src/tp_final.o
+                0x0000000000000538                EINT0_IRQHandler
  .text.EINT1_IRQHandler
-                0x000000000000053c       0x2c ./src/tp_final.o
-                0x000000000000053c                EINT1_IRQHandler
+                0x0000000000000554       0x2c ./src/tp_final.o
+                0x0000000000000554                EINT1_IRQHandler
+ .text.EINT2_IRQHandler
+                0x0000000000000580       0x4c ./src/tp_final.o
+                0x0000000000000580                EINT2_IRQHandler
+ .text.EINT3_IRQHandler
+                0x00000000000005cc       0x54 ./src/tp_final.o
+                0x00000000000005cc                EINT3_IRQHandler
  .text.SystemInit
-                0x0000000000000568       0xd8 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x0000000000000568                SystemInit
+                0x0000000000000620       0xd8 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x0000000000000620                SystemInit
  .text.DAC_Init
-                0x0000000000000640       0x24 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                0x0000000000000640                DAC_Init
+                0x00000000000006f8       0x24 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x00000000000006f8                DAC_Init
  .text.DAC_ConfigDAConverterControl
-                0x0000000000000664       0x4c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                0x0000000000000664                DAC_ConfigDAConverterControl
+                0x000000000000071c       0x4c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x000000000000071c                DAC_ConfigDAConverterControl
  .text.EXTI_SetMode
-                0x00000000000006b0       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
-                0x00000000000006b0                EXTI_SetMode
+                0x0000000000000768       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+                0x0000000000000768                EXTI_SetMode
  .text.EXTI_SetPolarity
-                0x00000000000006e0       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
-                0x00000000000006e0                EXTI_SetPolarity
+                0x0000000000000798       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+                0x0000000000000798                EXTI_SetPolarity
  .text.EXTI_Config
-                0x0000000000000710       0x24 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
-                0x0000000000000710                EXTI_Config
+                0x00000000000007c8       0x24 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+                0x00000000000007c8                EXTI_Config
  .text.GPDMA_Init
-                0x0000000000000734       0x38 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000734                GPDMA_Init
+                0x00000000000007ec       0x38 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x00000000000007ec                GPDMA_Init
  .text.GPDMA_Setup
-                0x000000000000076c      0x1d8 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x000000000000076c                GPDMA_Setup
+                0x0000000000000824      0x1d8 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000824                GPDMA_Setup
  .text.GPDMA_ChannelCmd
-                0x0000000000000944       0x1c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000944                GPDMA_ChannelCmd
+                0x00000000000009fc       0x1c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x00000000000009fc                GPDMA_ChannelCmd
  .text.GPIO_IntCmd
-                0x0000000000000960       0x38 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
-                0x0000000000000960                GPIO_IntCmd
+                0x0000000000000a18       0x38 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x0000000000000a18                GPIO_IntCmd
  .text.check_failed
-                0x0000000000000998        0x2 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
-                0x0000000000000998                check_failed
- *fill*         0x000000000000099a        0x2 ff
+                0x0000000000000a50        0x2 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                0x0000000000000a50                check_failed
+ *fill*         0x0000000000000a52        0x2 ff
  .text.PINSEL_ConfigPin
-                0x000000000000099c       0x7c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
-                0x000000000000099c                PINSEL_ConfigPin
+                0x0000000000000a54       0x7c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+                0x0000000000000a54                PINSEL_ConfigPin
  .text.CLKPWR_ConfigPPWR
-                0x0000000000000a18       0x34 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
-                0x0000000000000a18                CLKPWR_ConfigPPWR
+                0x0000000000000ad0       0x34 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000000ad0                CLKPWR_ConfigPPWR
  .text.__weak_main
-                0x0000000000000a4c        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
-                0x0000000000000a4c                __main
-                0x0000000000000a4c                __weak_main
+                0x0000000000000b04        0x4 /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
+                0x0000000000000b04                __main
+                0x0000000000000b04                __weak_main
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.DAC_Init.str1.1
-                0x0000000000000a50        0xe /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- *fill*         0x0000000000000a5e        0x2 ff
+                0x0000000000000b08        0xe /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ *fill*         0x0000000000000b16        0x2 ff
  .rodata.GPDMA_LUTPerAddr
-                0x0000000000000a60       0x60 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000a60                GPDMA_LUTPerAddr
+                0x0000000000000b18       0x60 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000b18                GPDMA_LUTPerAddr
  .rodata.GPDMA_LUTPerBurst
-                0x0000000000000ac0       0x18 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000ac0                GPDMA_LUTPerBurst
+                0x0000000000000b78       0x18 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000b78                GPDMA_LUTPerBurst
  .rodata.GPDMA_LUTPerWid
-                0x0000000000000ad8       0x18 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000000000ad8                GPDMA_LUTPerWid
-                0x0000000000000af0                . = ALIGN (0x4)
+                0x0000000000000b90       0x18 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000b90                GPDMA_LUTPerWid
+                0x0000000000000ba8                . = ALIGN (0x4)
 
-.glue_7         0x0000000000000af0        0x0
- .glue_7        0x0000000000000af0        0x0 linker stubs
+.glue_7         0x0000000000000ba8        0x0
+ .glue_7        0x0000000000000ba8        0x0 linker stubs
 
-.glue_7t        0x0000000000000af0        0x0
- .glue_7t       0x0000000000000af0        0x0 linker stubs
+.glue_7t        0x0000000000000ba8        0x0
+ .glue_7t       0x0000000000000ba8        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000000af0        0x0
- .vfp11_veneer  0x0000000000000af0        0x0 linker stubs
+.vfp11_veneer   0x0000000000000ba8        0x0
+ .vfp11_veneer  0x0000000000000ba8        0x0 linker stubs
 
-.v4_bx          0x0000000000000af0        0x0
- .v4_bx         0x0000000000000af0        0x0 linker stubs
+.v4_bx          0x0000000000000ba8        0x0
+ .v4_bx         0x0000000000000ba8        0x0 linker stubs
 
-.iplt           0x0000000000000af0        0x0
- .iplt          0x0000000000000af0        0x0 ./src/cr_startup_lpc175x_6x.o
+.iplt           0x0000000000000ba8        0x0
+ .iplt          0x0000000000000ba8        0x0 ./src/Config.o
 
-.rel.dyn        0x0000000000000af0        0x0
- .rel.iplt      0x0000000000000af0        0x0 ./src/cr_startup_lpc175x_6x.o
+.rel.dyn        0x0000000000000ba8        0x0
+ .rel.iplt      0x0000000000000ba8        0x0 ./src/Config.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM.exidx      0x0000000000000af0        0x0
-                0x0000000000000af0                __exidx_start = .
+.ARM.exidx      0x0000000000000ba8        0x0
+                0x0000000000000ba8                __exidx_start = .
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000000000af0                __exidx_end = .
-                0x0000000000000af0                _etext = .
+                0x0000000000000ba8                __exidx_end = .
+                0x0000000000000ba8                _etext = .
 
-.data_RAM2      0x000000002007c000        0x0 load address 0x0000000000000af0
+.data_RAM2      0x000000002007c000        0x0 load address 0x0000000000000ba8
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM2 = .)
                 [!provide]                        PROVIDE (__start_data_RamAHB32 = .)
@@ -724,7 +765,7 @@ END GROUP
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000       0x20 load address 0x0000000000000af0
+.data           0x0000000010000000       0x40 load address 0x0000000000000ba8
  FILL mask 0xff
                 0x0000000010000000                _data = .
                 [!provide]                        PROVIDE (__start_data_RAM = .)
@@ -735,16 +776,23 @@ END GROUP
  *(DataQuickAccess)
  *(RamFunction)
  *(.data*)
+ .data.octActual
+                0x0000000010000000        0x1 ./src/tp_final.o
+                0x0000000010000000                octActual
+ *fill*         0x0000000010000001        0x3 ff
+ .data.notas    0x0000000010000004       0x1a ./src/tp_final.o
+                0x0000000010000004                notas
+ *fill*         0x000000001000001e        0x2 ff
  .data.pGPDMACh
-                0x0000000010000000       0x20 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                0x0000000010000000                pGPDMACh
-                0x0000000010000020                . = ALIGN (0x4)
-                0x0000000010000020                _edata = .
+                0x0000000010000020       0x20 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000010000020                pGPDMACh
+                0x0000000010000040                . = ALIGN (0x4)
+                0x0000000010000040                _edata = .
                 [!provide]                        PROVIDE (__end_data_RAM = .)
                 [!provide]                        PROVIDE (__end_data_RamLoc32 = .)
 
-.igot.plt       0x0000000010000020        0x0 load address 0x0000000000000b10
- .igot.plt      0x0000000010000020        0x0 ./src/cr_startup_lpc175x_6x.o
+.igot.plt       0x0000000010000040        0x0 load address 0x0000000000000be8
+ .igot.plt      0x0000000010000040        0x0 ./src/Config.o
 
 .bss_RAM2       0x000000002007c000        0x0
                 [!provide]                        PROVIDE (__start_bss_RAM2 = .)
@@ -757,26 +805,26 @@ END GROUP
                 [!provide]                        PROVIDE (__end_bss_RAM2 = .)
                 [!provide]                        PROVIDE (__end_bss_RamAHB32 = .)
 
-.bss            0x0000000010000020      0x604
-                0x0000000010000020                _bss = .
+.bss            0x0000000010000040      0x604
+                0x0000000010000040                _bss = .
                 [!provide]                        PROVIDE (__start_bss_RAM = .)
                 [!provide]                        PROVIDE (__start_bss_RamLoc32 = .)
  *(.bss*)
- .bss.sgnRect   0x0000000010000020      0x200 ./src/tp_final.o
-                0x0000000010000020                sgnRect
+ .bss.sgnRect   0x0000000010000040      0x200 ./src/tp_final.o
+                0x0000000010000040                sgnRect
  .bss.sgnTriang
-                0x0000000010000220      0x200 ./src/tp_final.o
-                0x0000000010000220                sgnTriang
+                0x0000000010000240      0x200 ./src/tp_final.o
+                0x0000000010000240                sgnTriang
  .bss.sgnSierra
-                0x0000000010000420      0x200 ./src/tp_final.o
-                0x0000000010000420                sgnSierra
+                0x0000000010000440      0x200 ./src/tp_final.o
+                0x0000000010000440                sgnSierra
  .bss.sgnActual
-                0x0000000010000620        0x1 ./src/tp_final.o
-                0x0000000010000620                sgnActual
+                0x0000000010000640        0x1 ./src/tp_final.o
+                0x0000000010000640                sgnActual
  *(COMMON)
-                0x0000000010000624                . = ALIGN (0x4)
- *fill*         0x0000000010000621        0x3 
-                0x0000000010000624                _ebss = .
+                0x0000000010000644                . = ALIGN (0x4)
+ *fill*         0x0000000010000641        0x3 
+                0x0000000010000644                _ebss = .
                 [!provide]                        PROVIDE (__end_bss_RAM = .)
                 [!provide]                        PROVIDE (__end_bss_RamLoc32 = .)
                 [!provide]                        PROVIDE (end = .)
@@ -792,165 +840,179 @@ END GROUP
                 [!provide]                        PROVIDE (__end_noinit_RAM2 = .)
                 [!provide]                        PROVIDE (__end_noinit_RamAHB32 = .)
 
-.noinit         0x0000000010000624        0x0
-                0x0000000010000624                _noinit = .
+.noinit         0x0000000010000644        0x0
+                0x0000000010000644                _noinit = .
                 [!provide]                        PROVIDE (__start_noinit_RAM = .)
                 [!provide]                        PROVIDE (__start_noinit_RamLoc32 = .)
  *(.noinit*)
-                0x0000000010000624                . = ALIGN (0x4)
-                0x0000000010000624                _end_noinit = .
+                0x0000000010000644                . = ALIGN (0x4)
+                0x0000000010000644                _end_noinit = .
                 [!provide]                        PROVIDE (__end_noinit_RAM = .)
                 [!provide]                        PROVIDE (__end_noinit_RamLoc32 = .)
-                0x0000000010000624                PROVIDE (_pvHeapStart = DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x0000000010000644                PROVIDE (_pvHeapStart = DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x0000000010008000                PROVIDE (_vStackTop = DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
                 0xffffffffefff74c6                PROVIDE (__valid_user_code_checksum = (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
                 0x0000000000000000                _image_start = LOADADDR (.text)
-                0x0000000000000b10                _image_end = (LOADADDR (.data) + SIZEOF (.data))
-                0x0000000000000b10                _image_size = (_image_end - _image_start)
+                0x0000000000000be8                _image_end = (LOADADDR (.data) + SIZEOF (.data))
+                0x0000000000000be8                _image_size = (_image_end - _image_start)
 OUTPUT(tp_final.axf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000     0x415d
- .debug_info    0x0000000000000000      0x27f ./src/cr_startup_lpc175x_6x.o
- .debug_info    0x000000000000027f       0x40 ./src/crp.o
- .debug_info    0x00000000000002bf      0x4f7 ./src/tp_final.o
- .debug_info    0x00000000000007b6      0x347 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_info    0x0000000000000afd      0x365 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_info    0x0000000000000e62      0x53b /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
- .debug_info    0x000000000000139d     0x112b /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
- .debug_info    0x00000000000024c8      0xfb3 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .debug_info    0x000000000000347b       0xd4 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_info    0x000000000000354f      0x544 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
- .debug_info    0x0000000000003a93      0x6ca /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+.debug_info     0x0000000000000000     0x4300
+ .debug_info    0x0000000000000000      0x366 ./src/Config.o
+ .debug_info    0x0000000000000366      0x27f ./src/cr_startup_lpc175x_6x.o
+ .debug_info    0x00000000000005e5       0x40 ./src/crp.o
+ .debug_info    0x0000000000000625      0x334 ./src/tp_final.o
+ .debug_info    0x0000000000000959      0x347 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_info    0x0000000000000ca0      0x365 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_info    0x0000000000001005      0x53b /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+ .debug_info    0x0000000000001540     0x112b /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_info    0x000000000000266b      0xfb3 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_info    0x000000000000361e       0xd4 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_info    0x00000000000036f2      0x544 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_info    0x0000000000003c36      0x6ca /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
-.debug_abbrev   0x0000000000000000     0x10b1
- .debug_abbrev  0x0000000000000000      0x122 ./src/cr_startup_lpc175x_6x.o
- .debug_abbrev  0x0000000000000122       0x38 ./src/crp.o
- .debug_abbrev  0x000000000000015a      0x173 ./src/tp_final.o
- .debug_abbrev  0x00000000000002cd      0x10e /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_abbrev  0x00000000000003db      0x17f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_abbrev  0x000000000000055a      0x1ae /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
- .debug_abbrev  0x0000000000000708      0x287 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
- .debug_abbrev  0x000000000000098f      0x303 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .debug_abbrev  0x0000000000000c92       0x75 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_abbrev  0x0000000000000d07      0x1b9 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
- .debug_abbrev  0x0000000000000ec0      0x1f1 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+.debug_abbrev   0x0000000000000000     0x11b7
+ .debug_abbrev  0x0000000000000000      0x13a ./src/Config.o
+ .debug_abbrev  0x000000000000013a      0x122 ./src/cr_startup_lpc175x_6x.o
+ .debug_abbrev  0x000000000000025c       0x38 ./src/crp.o
+ .debug_abbrev  0x0000000000000294      0x13f ./src/tp_final.o
+ .debug_abbrev  0x00000000000003d3      0x10e /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_abbrev  0x00000000000004e1      0x17f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_abbrev  0x0000000000000660      0x1ae /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+ .debug_abbrev  0x000000000000080e      0x287 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_abbrev  0x0000000000000a95      0x303 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_abbrev  0x0000000000000d98       0x75 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_abbrev  0x0000000000000e0d      0x1b9 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_abbrev  0x0000000000000fc6      0x1f1 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
-.debug_aranges  0x0000000000000000      0x368
+.debug_aranges  0x0000000000000000      0x390
  .debug_aranges
-                0x0000000000000000       0x80 ./src/cr_startup_lpc175x_6x.o
+                0x0000000000000000       0x30 ./src/Config.o
  .debug_aranges
-                0x0000000000000080       0x18 ./src/crp.o
+                0x0000000000000030       0x80 ./src/cr_startup_lpc175x_6x.o
  .debug_aranges
-                0x0000000000000098       0x50 ./src/tp_final.o
+                0x00000000000000b0       0x18 ./src/crp.o
  .debug_aranges
-                0x00000000000000e8       0x28 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00000000000000c8       0x48 ./src/tp_final.o
  .debug_aranges
-                0x0000000000000110       0x40 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x0000000000000110       0x28 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
  .debug_aranges
-                0x0000000000000150       0x48 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+                0x0000000000000138       0x40 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
  .debug_aranges
-                0x0000000000000198       0x40 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x0000000000000178       0x48 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
  .debug_aranges
-                0x00000000000001d8       0xe8 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x00000000000001c0       0x40 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
  .debug_aranges
-                0x00000000000002c0       0x20 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                0x0000000000000200       0xe8 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
  .debug_aranges
-                0x00000000000002e0       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+                0x00000000000002e8       0x20 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
  .debug_aranges
-                0x0000000000000310       0x58 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x0000000000000308       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_aranges
+                0x0000000000000338       0x58 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
-.debug_ranges   0x0000000000000000      0x308
- .debug_ranges  0x0000000000000000       0x70 ./src/cr_startup_lpc175x_6x.o
- .debug_ranges  0x0000000000000070       0x40 ./src/tp_final.o
- .debug_ranges  0x00000000000000b0       0x18 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_ranges  0x00000000000000c8       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_ranges  0x00000000000000f8       0x38 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
- .debug_ranges  0x0000000000000130       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
- .debug_ranges  0x0000000000000160       0xf0 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .debug_ranges  0x0000000000000250       0x10 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_ranges  0x0000000000000260       0x60 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
- .debug_ranges  0x00000000000002c0       0x48 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+.debug_ranges   0x0000000000000000      0x320
+ .debug_ranges  0x0000000000000000       0x20 ./src/Config.o
+ .debug_ranges  0x0000000000000020       0x70 ./src/cr_startup_lpc175x_6x.o
+ .debug_ranges  0x0000000000000090       0x38 ./src/tp_final.o
+ .debug_ranges  0x00000000000000c8       0x18 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_ranges  0x00000000000000e0       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_ranges  0x0000000000000110       0x38 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+ .debug_ranges  0x0000000000000148       0x30 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_ranges  0x0000000000000178       0xf0 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_ranges  0x0000000000000268       0x10 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_ranges  0x0000000000000278       0x60 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_ranges  0x00000000000002d8       0x48 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
-.debug_macro    0x0000000000000000     0x3499
- .debug_macro   0x0000000000000000       0x1d ./src/cr_startup_lpc175x_6x.o
- .debug_macro   0x000000000000001d       0x1a ./src/crp.o
- .debug_macro   0x0000000000000037       0x34 ./src/crp.o
- .debug_macro   0x000000000000006b       0xe8 ./src/tp_final.o
- .debug_macro   0x0000000000000153       0x1c ./src/tp_final.o
- .debug_macro   0x000000000000016f       0x2e ./src/tp_final.o
- .debug_macro   0x000000000000019d      0x5b3 ./src/tp_final.o
- .debug_macro   0x0000000000000750       0x18 ./src/tp_final.o
- .debug_macro   0x0000000000000768      0x7af ./src/tp_final.o
- .debug_macro   0x0000000000000f17      0x2c7 ./src/tp_final.o
- .debug_macro   0x00000000000011de       0x63 ./src/tp_final.o
- .debug_macro   0x0000000000001241       0x3a ./src/tp_final.o
- .debug_macro   0x000000000000127b       0xea ./src/tp_final.o
- .debug_macro   0x0000000000001365      0x145 ./src/tp_final.o
- .debug_macro   0x00000000000014aa       0x46 ./src/tp_final.o
- .debug_macro   0x00000000000014f0       0x22 ./src/tp_final.o
- .debug_macro   0x0000000000001512      0x2ae ./src/tp_final.o
- .debug_macro   0x00000000000017c0       0x82 ./src/tp_final.o
- .debug_macro   0x0000000000001842       0x9a ./src/tp_final.o
- .debug_macro   0x00000000000018dc      0x12b /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_macro   0x0000000000001a07      0xa78 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_macro   0x000000000000247f       0x9f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_macro   0x000000000000251e      0x2f7 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_macro   0x0000000000002815       0xdd /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_macro   0x00000000000028f2       0x96 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
- .debug_macro   0x0000000000002988       0x1c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
- .debug_macro   0x00000000000029a4       0x9f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
- .debug_macro   0x0000000000002a43      0x2a8 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
- .debug_macro   0x0000000000002ceb       0x96 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .debug_macro   0x0000000000002d81       0x40 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .debug_macro   0x0000000000002dc1       0x5a /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_macro   0x0000000000002e1b       0x5d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_macro   0x0000000000002e78       0xd7 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_macro   0x0000000000002f4f       0x8d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
- .debug_macro   0x0000000000002fdc      0x13f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
- .debug_macro   0x000000000000311b       0x8d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
- .debug_macro   0x00000000000031a8      0x2f1 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+.debug_macro    0x0000000000000000     0x4134
+ .debug_macro   0x0000000000000000       0xcc ./src/Config.o
+ .debug_macro   0x00000000000000cc      0xa7e ./src/Config.o
+ .debug_macro   0x0000000000000b4a       0x1c ./src/Config.o
+ .debug_macro   0x0000000000000b66       0x2e ./src/Config.o
+ .debug_macro   0x0000000000000b94       0x10 ./src/Config.o
+ .debug_macro   0x0000000000000ba4      0x12e ./src/Config.o
+ .debug_macro   0x0000000000000cd2      0x5b3 ./src/Config.o
+ .debug_macro   0x0000000000001285       0x18 ./src/Config.o
+ .debug_macro   0x000000000000129d      0x7af ./src/Config.o
+ .debug_macro   0x0000000000001a4c      0x2c7 ./src/Config.o
+ .debug_macro   0x0000000000001d13       0x16 ./src/Config.o
+ .debug_macro   0x0000000000001d29       0x63 ./src/Config.o
+ .debug_macro   0x0000000000001d8c       0x3a ./src/Config.o
+ .debug_macro   0x0000000000001dc6       0xea ./src/Config.o
+ .debug_macro   0x0000000000001eb0      0x145 ./src/Config.o
+ .debug_macro   0x0000000000001ff5       0x46 ./src/Config.o
+ .debug_macro   0x000000000000203b       0x22 ./src/Config.o
+ .debug_macro   0x000000000000205d      0x2ae ./src/Config.o
+ .debug_macro   0x000000000000230b       0x82 ./src/Config.o
+ .debug_macro   0x000000000000238d       0x1d ./src/cr_startup_lpc175x_6x.o
+ .debug_macro   0x00000000000023aa       0x1a ./src/crp.o
+ .debug_macro   0x00000000000023c4       0x34 ./src/crp.o
+ .debug_macro   0x00000000000023f8       0xe5 ./src/tp_final.o
+ .debug_macro   0x00000000000024dd       0x9a ./src/tp_final.o
+ .debug_macro   0x0000000000002577      0x12b /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_macro   0x00000000000026a2      0xa78 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_macro   0x000000000000311a       0x9f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_macro   0x00000000000031b9      0x2f7 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_macro   0x00000000000034b0       0xdd /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_macro   0x000000000000358d       0x96 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+ .debug_macro   0x0000000000003623       0x1c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+ .debug_macro   0x000000000000363f       0x9f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_macro   0x00000000000036de      0x2a8 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_macro   0x0000000000003986       0x96 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_macro   0x0000000000003a1c       0x40 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_macro   0x0000000000003a5c       0x5a /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_macro   0x0000000000003ab6       0x5d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_macro   0x0000000000003b13       0xd7 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_macro   0x0000000000003bea       0x8d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_macro   0x0000000000003c77      0x13f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_macro   0x0000000000003db6       0x8d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_macro   0x0000000000003e43      0x2f1 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
-.debug_line     0x0000000000000000     0x2d62
- .debug_line    0x0000000000000000      0x160 ./src/cr_startup_lpc175x_6x.o
- .debug_line    0x0000000000000160       0xb5 ./src/crp.o
- .debug_line    0x0000000000000215      0x597 ./src/tp_final.o
- .debug_line    0x00000000000007ac      0x43c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_line    0x0000000000000be8      0x434 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_line    0x000000000000101c      0x3ba /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
- .debug_line    0x00000000000013d6      0x665 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
- .debug_line    0x0000000000001a3b      0x88c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .debug_line    0x00000000000022c7      0x253 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_line    0x000000000000251a      0x3af /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
- .debug_line    0x00000000000028c9      0x499 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+.debug_line     0x0000000000000000     0x3285
+ .debug_line    0x0000000000000000      0x51b ./src/Config.o
+ .debug_line    0x000000000000051b      0x160 ./src/cr_startup_lpc175x_6x.o
+ .debug_line    0x000000000000067b       0xb5 ./src/crp.o
+ .debug_line    0x0000000000000730      0x59f ./src/tp_final.o
+ .debug_line    0x0000000000000ccf      0x43c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x000000000000110b      0x434 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_line    0x000000000000153f      0x3ba /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+ .debug_line    0x00000000000018f9      0x665 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_line    0x0000000000001f5e      0x88c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_line    0x00000000000027ea      0x253 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_line    0x0000000000002a3d      0x3af /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_line    0x0000000000002dec      0x499 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
-.debug_str      0x0000000000000000     0xdc5e
- .debug_str     0x0000000000000000     0x2ede ./src/cr_startup_lpc175x_6x.o
+.debug_str      0x0000000000000000     0xdca3
+ .debug_str     0x0000000000000000     0xaf76 ./src/Config.o
+                                       0xb004 (size before relaxing)
+ .debug_str     0x000000000000af76      0x1c2 ./src/cr_startup_lpc175x_6x.o
                                        0x2ef1 (size before relaxing)
- .debug_str     0x0000000000002ede       0xe9 ./src/crp.o
+ .debug_str     0x000000000000b138       0xe9 ./src/crp.o
                                        0x2e12 (size before relaxing)
- .debug_str     0x0000000000002fc7     0x85ef ./src/tp_final.o
-                                       0xb3ab (size before relaxing)
- .debug_str     0x000000000000b5b6      0x5b4 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_str     0x000000000000b221      0x3da ./src/tp_final.o
+                                       0xb288 (size before relaxing)
+ .debug_str     0x000000000000b5fb      0x5b4 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
                                        0x88e2 (size before relaxing)
- .debug_str     0x000000000000bb6a     0x144a /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_str     0x000000000000bbaf     0x144a /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
                                        0x9c8c (size before relaxing)
- .debug_str     0x000000000000cfb4       0x82 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+ .debug_str     0x000000000000cff9       0x82 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
                                        0x8af8 (size before relaxing)
- .debug_str     0x000000000000d036      0x4af /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_str     0x000000000000d07b      0x4af /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
                                        0xb32d (size before relaxing)
- .debug_str     0x000000000000d4e5      0x42c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_str     0x000000000000d52a      0x42c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
                                        0x8e3b (size before relaxing)
- .debug_str     0x000000000000d911       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_str     0x000000000000d956       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
                                        0x4709 (size before relaxing)
- .debug_str     0x000000000000d93e      0x211 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_str     0x000000000000d983      0x211 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
                                        0x8d54 (size before relaxing)
- .debug_str     0x000000000000db4f      0x10f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .debug_str     0x000000000000db94      0x10f /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
                                        0x9adc (size before relaxing)
 
 .comment        0x0000000000000000       0x49
- .comment       0x0000000000000000       0x49 ./src/cr_startup_lpc175x_6x.o
+ .comment       0x0000000000000000       0x49 ./src/Config.o
                                          0x4a (size before relaxing)
+ .comment       0x0000000000000049       0x4a ./src/cr_startup_lpc175x_6x.o
  .comment       0x0000000000000049       0x4a ./src/crp.o
  .comment       0x0000000000000049       0x4a ./src/tp_final.o
  .comment       0x0000000000000049       0x4a /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
@@ -966,41 +1028,44 @@ LOAD linker stubs
 .ARM.attributes
                 0x0000000000000000       0x2b
  .ARM.attributes
-                0x0000000000000000       0x2d ./src/cr_startup_lpc175x_6x.o
+                0x0000000000000000       0x2d ./src/Config.o
  .ARM.attributes
-                0x000000000000002d       0x2d ./src/crp.o
+                0x000000000000002d       0x2d ./src/cr_startup_lpc175x_6x.o
  .ARM.attributes
-                0x000000000000005a       0x2d ./src/tp_final.o
+                0x000000000000005a       0x2d ./src/crp.o
  .ARM.attributes
-                0x0000000000000087       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x0000000000000087       0x2d ./src/tp_final.o
  .ARM.attributes
-                0x00000000000000b4       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+                0x00000000000000b4       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
  .ARM.attributes
-                0x00000000000000e1       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+                0x00000000000000e1       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
  .ARM.attributes
-                0x000000000000010e       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+                0x000000000000010e       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
  .ARM.attributes
-                0x000000000000013b       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+                0x000000000000013b       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
  .ARM.attributes
-                0x0000000000000168       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+                0x0000000000000168       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
  .ARM.attributes
-                0x0000000000000195       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+                0x0000000000000195       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
  .ARM.attributes
-                0x00000000000001c2       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+                0x00000000000001c2       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
  .ARM.attributes
-                0x00000000000001ef       0x2d /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
+                0x00000000000001ef       0x2d /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+ .ARM.attributes
+                0x000000000000021c       0x2d /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
 
-.debug_frame    0x0000000000000000      0x788
- .debug_frame   0x0000000000000000      0x170 ./src/cr_startup_lpc175x_6x.o
- .debug_frame   0x0000000000000170      0x100 ./src/tp_final.o
- .debug_frame   0x0000000000000270       0x3c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
- .debug_frame   0x00000000000002ac       0x98 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
- .debug_frame   0x0000000000000344       0x7c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
- .debug_frame   0x00000000000003c0       0x90 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
- .debug_frame   0x0000000000000450      0x228 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
- .debug_frame   0x0000000000000678       0x20 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
- .debug_frame   0x0000000000000698       0x50 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
- .debug_frame   0x00000000000006e8       0xa0 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
+.debug_frame    0x0000000000000000      0x7e8
+ .debug_frame   0x0000000000000000       0x80 ./src/Config.o
+ .debug_frame   0x0000000000000080      0x170 ./src/cr_startup_lpc175x_6x.o
+ .debug_frame   0x00000000000001f0       0xe0 ./src/tp_final.o
+ .debug_frame   0x00000000000002d0       0x3c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_frame   0x000000000000030c       0x98 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
+ .debug_frame   0x00000000000003a4       0x7c /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
+ .debug_frame   0x0000000000000420       0x90 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
+ .debug_frame   0x00000000000004b0      0x228 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
+ .debug_frame   0x00000000000006d8       0x20 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
+ .debug_frame   0x00000000000006f8       0x50 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
+ .debug_frame   0x0000000000000748       0xa0 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_clkpwr.o)
 
 .debug_loc      0x0000000000000000     0x118a
  .debug_loc     0x0000000000000000      0x216 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
@@ -1031,9 +1096,9 @@ CLKPWR_Sleep                                      /home/ferminverdolini/Universi
 CRP_WORD                                          ./src/crp.o
 CreateStack                                       ./src/Stack.o
 DAC_ConfigDAConverterControl                      /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                                                  ./src/tp_final.o
+                                                  ./src/Config.o
 DAC_Init                                          /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
-                                                  ./src/tp_final.o
+                                                  ./src/Config.o
 DAC_SetBias                                       /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
 DAC_SetDMATimeOut                                 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
 DAC_UpdateValue                                   /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_dac.o)
@@ -1043,8 +1108,10 @@ EINT0_IRQHandler                                  ./src/tp_final.o
                                                   ./src/cr_startup_lpc175x_6x.o
 EINT1_IRQHandler                                  ./src/tp_final.o
                                                   ./src/cr_startup_lpc175x_6x.o
-EINT2_IRQHandler                                  ./src/cr_startup_lpc175x_6x.o
-EINT3_IRQHandler                                  ./src/cr_startup_lpc175x_6x.o
+EINT2_IRQHandler                                  ./src/tp_final.o
+                                                  ./src/cr_startup_lpc175x_6x.o
+EINT3_IRQHandler                                  ./src/tp_final.o
+                                                  ./src/cr_startup_lpc175x_6x.o
 ENET_IRQHandler                                   ./src/cr_startup_lpc175x_6x.o
 EXTI_ClearEXTIFlag                                /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
 EXTI_Config                                       /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_exti.o)
@@ -1072,16 +1139,16 @@ FIO_SetDir                                        /home/ferminverdolini/Universi
 FIO_SetMask                                       /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
 FIO_SetValue                                      /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
 GPDMA_ChannelCmd                                  /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                                                  ./src/tp_final.o
+                                                  ./src/Config.o
 GPDMA_ClearIntPending                             /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
 GPDMA_Init                                        /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                                                  ./src/tp_final.o
+                                                  ./src/Config.o
 GPDMA_IntGetStatus                                /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
 GPDMA_LUTPerAddr                                  /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
 GPDMA_LUTPerBurst                                 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
 GPDMA_LUTPerWid                                   /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
 GPDMA_Setup                                       /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
-                                                  ./src/tp_final.o
+                                                  ./src/Config.o
 GPIO_ClearInt                                     /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
 GPIO_ClearValue                                   /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
 GPIO_GetIntStatus                                 /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpio.o)
@@ -1103,6 +1170,7 @@ MemManage_Handler                                 ./src/cr_startup_lpc175x_6x.o
 NMI_Handler                                       ./src/cr_startup_lpc175x_6x.o
 PINSEL_ConfigPin                                  /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
                                                   ./src/tp_final.o
+                                                  ./src/Config.o
 PINSEL_ConfigTraceFunc                            /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
 PINSEL_SetI2C0Pins                                /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_pinsel.o)
 PLL0_IRQHandler                                   ./src/cr_startup_lpc175x_6x.o
@@ -1182,8 +1250,10 @@ _sbrk                                             /usr/local/mcuxpressoide-11.6.
 _vStackTop                                        ./src/cr_startup_lpc175x_6x.o
 bss_init                                          ./src/cr_startup_lpc175x_6x.o
 calloc                                            /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
-cfgDAC                                            ./src/tp_final.o
-cfgDMA                                            ./src/tp_final.o
+cfgDAC                                            ./src/Config.o
+                                                  ./src/tp_final.o
+cfgDMA                                            ./src/Config.o
+                                                  ./src/tp_final.o
 cfgPines                                          ./src/tp_final.o
 check_failed                                      /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_libcfg_default.o)
                                                   /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
@@ -1196,17 +1266,19 @@ free                                              /usr/local/mcuxpressoide-11.6.
 g_pfnVectors                                      ./src/cr_startup_lpc175x_6x.o
 main                                              ./src/tp_final.o
                                                   /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(__weak__main.o)
-makeSignals                                       ./src/tp_final.o
+makeSignals                                       ./src/Config.o
+                                                  ./src/tp_final.o
 malloc                                            /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
                                                   ./src/Stack.o
 memcpy                                            /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(memcpy.o)
                                                   /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
 memset                                            /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(memset.o)
                                                   /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
+notas                                             ./src/tp_final.o
+octActual                                         ./src/tp_final.o
 pGPDMACh                                          /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/CMSISv2p00_LPC17xx/Debug/libCMSISv2p00_LPC17xx.a(lpc17xx_gpdma.o)
 realloc                                           /usr/local/mcuxpressoide-11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.6.0.202112161359/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libcr_c.a(alloc.o)
 sgnActual                                         ./src/tp_final.o
 sgnRect                                           ./src/tp_final.o
 sgnSierra                                         ./src/tp_final.o
 sgnTriang                                         ./src/tp_final.o
-sgnflag                                           ./src/tp_final.o
