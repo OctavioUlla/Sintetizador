@@ -7,7 +7,7 @@
 
 void cfgPines();
 void cfgDAC();
-void cfgDMA(uint16_t sgnRect[],GPDMA_LLI_Type *listaDma);
+void cfgDMA(uint16_t sgnInicial[],GPDMA_LLI_Type *listaDma);
 void makeSignals(uint16_t signals[][TRANSFERSIZE]);
 
 

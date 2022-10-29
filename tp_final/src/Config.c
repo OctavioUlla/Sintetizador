@@ -69,11 +69,11 @@ void cfgDAC(){
 }
 
 // Funcion que configura el DMA y prend el DMA
-void cfgDMA(uint16_t sgnRect[],GPDMA_LLI_Type *listaDma){
+void cfgDMA(uint16_t sgnInicial[],GPDMA_LLI_Type *listaDma){
 	GPDMA_Init();
 	// Se inicializa el DMA apuntando a la lista de la señal rectangula
 	listaDma->NextLLI = (uint32_t) &listaDma;
-	listaDma->SrcAddr = (uint32_t) sgnRect[0];
+	listaDma->SrcAddr = (uint32_t) sgnInicial;
 	listaDma->DstAddr = (uint32_t) &(LPC_DAC ->DACR);
 	listaDma->Control = TRANSFERSIZE | (1 << 18) | ( 1 << 21);
 
