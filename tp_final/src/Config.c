@@ -97,19 +97,19 @@ void cfgDMA(uint16_t sgnRect[],GPDMA_LLI_Type *listaDma){
 		dac.OpenDrain = PINSEL_PINMODE_NORMAL;
 	PINSEL_ConfigPin(&dac); // Se prende el DAC
 }
-void makeSignals(uint16_t sgnRect[],uint16_t sgnTriang[],uint16_t sgnSierra[]){
+void makeSignals(uint16_t signals[][TRANSFERSIZE]){
 	uint16_t i;
 	uint16_t pendiente = DACSIZE/TRANSFERSIZE;
 
 	for(i=0;i<TRANSFERSIZE;i++){
 		if(i<TRANSFERSIZE/2){
-			sgnRect[i]=0;
-			sgnTriang[i]=i*pendiente*2;
+			signals[SGNRECT][i]=0;
+			signals[SGNTRIANG][i]=i*pendiente*2;
 		}else{
-			sgnRect[i]=DACSIZE-1;
-			sgnTriang[i]=(TRANSFERSIZE-i-1)*pendiente*2;
+			signals[SGNRECT][i]=DACSIZE-1;
+			signals[SGNTRIANG][i]=(TRANSFERSIZE-i-1)*pendiente*2;
 		}
-		sgnSierra[i]=i*pendiente;
+		signals[SGNSIERRA][i]=i*pendiente;
 	}
 }
 

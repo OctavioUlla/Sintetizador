@@ -1,5 +1,5 @@
-../src/tp_final.c:40:5:main	8	static
-../src/tp_final.c:58:6:EINT0_IRQHandler	8	static
-../src/tp_final.c:62:6:EINT1_IRQHandler	8	static
-../src/tp_final.c:66:6:EINT2_IRQHandler	8	static
-../src/tp_final.c:71:6:EINT3_IRQHandler	8	static
+../src/tp_final.c:43:5:main	8	static
+../src/tp_final.c:61:6:EINT0_IRQHandler	8	static
+../src/tp_final.c:66:6:EINT1_IRQHandler	8	static
+../src/tp_final.c:71:6:EINT2_IRQHandler	8	static
+../src/tp_final.c:76:6:EINT3_IRQHandler	8	static

@@ -25,10 +25,13 @@
 
 
 
-// Arreglos donde se guardan las formas de onda
-uint16_t sgnRect[TRANSFERSIZE]; // 0
-uint16_t sgnTriang[TRANSFERSIZE]; // 1
-uint16_t sgnSierra[TRANSFERSIZE]; // 2
+// Arreglo de arreglos donde se guardan las formas de onda
+// Posicion  de las seniales en el enum sgnls en config.h
+uint16_t signals[CANTIDADSGNLS][TRANSFERSIZE];
+//uint16_t sgnRect[TRANSFERSIZE]; // 0
+//uint16_t sgnTriang[TRANSFERSIZE]; // 1
+//uint16_t sgnSierra[TRANSFERSIZE]; // 2
+
 // Entero para seleccionar la señal
 uint8_t sgnActual = 0;
 uint8_t octActual = 4;
@@ -38,10 +41,10 @@ uint16_t notas[13]= {262,277,294,311,330,349,370,392,415,440,466,494,523};
 GPDMA_LLI_Type listaDma;
 
 int main(void) {
-	makeSignals(sgnRect, sgnTriang, sgnSierra);
+	makeSignals(signals);
 	cfgPines();
 	cfgDAC();
-	cfgDMA(sgnRect,&listaDma);
+	cfgDMA(signals[SGNRECT],&listaDma);
 
 	/* TODO:
 	 *
@@ -57,10 +60,12 @@ int main(void) {
 
 void EINT0_IRQHandler(void){
 	prevSgn(&sgnActual);
+	changeSgn(&sgnActual,&listaDma);
 }
 
 void EINT1_IRQHandler(void){
 	nextSgn(&sgnActual);
+	changeSgn(&sgnActual,&listaDma);
 }
 
 void EINT2_IRQHandler(void){

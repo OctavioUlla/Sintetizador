@@ -14,6 +14,11 @@ void nextSgn(uint8_t *sgnActual){
 	}
 }
 
+void changeSgn(uint8_t *sgnActual,GPDMA_LLI_Type *listaDma){
+	//listaDma->SrcAddr =
+}
+
+
 void disminuirOct(uint8_t *octActual, uint16_t notas[]){
 	if(*octActual>=0){
 		*octActual--;
