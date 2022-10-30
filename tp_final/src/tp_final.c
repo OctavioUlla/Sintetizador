@@ -17,9 +17,9 @@
 #include <cr_section_macros.h>
 
 #include <stdio.h>
+#include <Teclas.h>
 
 #include "Config.h"
-#include "Stack.h"
 // TODO: insert other definitions and declarations here
 
 #define CANTIDADSGNLS  ((3))
@@ -129,6 +129,7 @@ void EINT3_IRQHandler(void){
 		//Ver si se solto la tecla
 		if(GPIO_GetIntStatus(0,i,0)){
 			RemoveTecla(&stack,i);
+			UpdateDMAFrecuency(&stack,notas);
 
 			GPIO_ClearInt(0,i);
 			return;
@@ -136,6 +137,7 @@ void EINT3_IRQHandler(void){
 		//Ver si se apreto la tecla
 		else if(GPIO_GetIntStatus(0,i,1)){
 			InsertTecla(&stack,i);
+			UpdateDMAFrecuency(&stack,notas);
 
 			GPIO_ClearInt(0,i);
 			return;
@@ -145,6 +147,7 @@ void EINT3_IRQHandler(void){
 	//Ver si se apreto la tecla para pin 15
 	if(GPIO_GetIntStatus(0,15,0)){
 		RemoveTecla(&stack,15);
+		UpdateDMAFrecuency(&stack,notas);
 
 		GPIO_ClearInt(0,15);
 		return;
@@ -152,6 +155,7 @@ void EINT3_IRQHandler(void){
 	//Ver si se apreto la tecla para pin 15
 	else if(GPIO_GetIntStatus(0,15,1)){
 		InsertTecla(&stack,15);
+		UpdateDMAFrecuency(&stack,notas);
 
 		GPIO_ClearInt(0,15);
 		return;
