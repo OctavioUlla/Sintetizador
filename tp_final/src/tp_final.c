@@ -46,20 +46,22 @@ Stack stack;
 Stack stack;
 
 int main(void) {
+	SystemInit();
+
 	stack = CreateStack();
 
 	makeSignals(signals);
 	cfgPines();
 	cfgDAC();
 	cfgDMA(signals[SGNRECT],&listaDma);
-
-	/* TODO:
-	 *
-	 * Configurar NVIC pata las inteerrupciones externas
-	 *
+	cfgTIM0();
+	cfgADC();
+	cfgNVIC();
+	/* TODO:	 *
 	 * Configurar Interruciones donde se cambie segun la tecla el valor de la frecuencia de la señal mediante el DACCOUNTERVAL
 	 * y empiece a pedir datos(HABILIAR LAS REQ DEL CANAL 0 del DMA) cuando se presiona un tecla, y que el DMA deje de recibir
 	 * requests cuando se levanta la tecla
+	 * Configurar el ADC para que cambie los valores de
 */
 	while(1);
     return 0 ;
@@ -120,6 +122,10 @@ void EINT3_IRQHandler(void){
 	disminuirOct(&octActual, notas);
 
 
+}
+
+void ADC_IRQHandler(){
+	//TODO esto
 }
 
 
