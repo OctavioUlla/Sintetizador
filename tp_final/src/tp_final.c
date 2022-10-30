@@ -19,7 +19,7 @@
 #include <stdio.h>
 
 #include "Config.h"
-
+#include "Stack.h"
 // TODO: insert other definitions and declarations here
 
 #define CANTIDADSGNLS  ((3))
@@ -34,7 +34,11 @@ uint8_t octActual = 4;
 // Arreglo de las 13 notas inicializado en la 4ta Octava
 uint16_t notas[13]= {262,277,294,311,330,349,370,392,415,440,466,494,523};
 
+Stack stack;
+
 int main(void) {
+	stack = CreateStack();
+
 	makeSignals(sgnRect, sgnTriang, sgnSierra);
 	cfgPines();
 	cfgDAC();
@@ -119,12 +123,48 @@ void EINT2_IRQHandler(void){
 }
 
 void EINT3_IRQHandler(void){
+
+	//Pines del 0 al 11
+	for(uint8_t i = 0;i<12;i++){
+		//Ver si se solto la tecla
+		if(GPIO_GetIntStatus(0,i,0)){
+			RemoveTecla(&stack,i);
+
+			GPIO_ClearInt(0,i);
+			return;
+		}
+		//Ver si se apreto la tecla
+		else if(GPIO_GetIntStatus(0,i,1)){
+			InsertTecla(&stack,i);
+
+			GPIO_ClearInt(0,i);
+			return;
+		}
+	}
+
+	//Ver si se apreto la tecla para pin 15
+	if(GPIO_GetIntStatus(0,15,0)){
+		RemoveTecla(&stack,15);
+
+		GPIO_ClearInt(0,15);
+		return;
+	}
+	//Ver si se apreto la tecla para pin 15
+	else if(GPIO_GetIntStatus(0,15,1)){
+		InsertTecla(&stack,15);
+
+		GPIO_ClearInt(0,15);
+		return;
+	}
+
 	if(octActual<8){
 		octActual++;
 			for(int i = 0;i<13;i++){
 				notas[i]*=2;
 			}
 	}
+
+
 }
 
 
