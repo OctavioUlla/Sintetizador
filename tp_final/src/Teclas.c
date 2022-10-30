@@ -1,5 +1,7 @@
-#include "Stack.h"
 #include <stdlib.h>
+#include "Teclas.h"
+#include "lpc17xx_dac.h"
+#include "Const.h"
 
 Stack CreateStack()
 {
@@ -70,4 +72,17 @@ void RemoveTecla(Stack *stack, int numTecla)
             return;
         }
     }
+}
+
+void UpdateDMAFrecuency(Stack *stack,uint16_t *notas){
+
+	int tecla = GetNumTecla(stack);
+
+	if (tecla == -1){
+		return;
+	}
+
+	//25MHz por clock del CPU 100MHz y transferSize
+	uint32_t dmaCounter = (25 * 1000000)/(notas[tecla]*TRANSFERSIZE);
+	DAC_SetDMATimeOut(LPC_DAC,dmaCounter);
 }
