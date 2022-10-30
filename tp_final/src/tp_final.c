@@ -59,13 +59,11 @@ int main(void) {
 }
 
 void EINT0_IRQHandler(void){
-	prevSgn(&sgnActual);
-	changeSgn(&sgnActual,&listaDma,signals);
+	prevSgn(&sgnActual,&listaDma,signals);
 }
 
 void EINT1_IRQHandler(void){
-	nextSgn(&sgnActual);
-	changeSgn(&sgnActual,&listaDma,signals);
+	nextSgn(&sgnActual,&listaDma,signals);
 }
 
 void EINT2_IRQHandler(void){

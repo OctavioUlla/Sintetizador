@@ -5,9 +5,9 @@
 #ifndef BOTONES_H_
 #define BOTONES_H_
 
-void prevSgn(uint8_t *sgnActual);
-void nextSgn(uint8_t *sgnActual);
-void changeSgn(uint8_t *sgnActual,GPDMA_LLI_Type *listaDma,uint16_t signals[][TRANSFERSIZE]);
+void prevSgn(uint8_t *sgnActual,GPDMA_LLI_Type *listaDma,uint16_t signals[][TRANSFERSIZE]);
+void nextSgn(uint8_t *sgnActual,GPDMA_LLI_Type *listaDma,uint16_t signals[][TRANSFERSIZE]);
+void static changeSgn(uint8_t sgnActual,GPDMA_LLI_Type *listaDma,uint16_t signals[][TRANSFERSIZE]);
 void disminuirOct(uint8_t *octActual, uint16_t notas[]);
 void aumentarOct(uint8_t *octActual, uint16_t notas[]);
 
