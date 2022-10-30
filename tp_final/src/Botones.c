@@ -16,7 +16,7 @@ void nextSgn(uint8_t *sgnActual,GPDMA_LLI_Type *listaDma,uint16_t signals[][TRAN
 	changeSgn(*sgnActual,listaDma,signals);
 }
 
-void static changeSgn(uint8_t sgnActual,GPDMA_LLI_Type *listaDma,uint16_t signals[][TRANSFERSIZE]){
+void changeSgn(uint8_t sgnActual,GPDMA_LLI_Type *listaDma,uint16_t signals[][TRANSFERSIZE]){
 	listaDma->SrcAddr = (uint32_t)signals[sgnActual];
 }
 
