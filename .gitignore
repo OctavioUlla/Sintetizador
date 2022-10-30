@@ -1,2 +1,5 @@
 /.metadata/
 tp_final/Debug/
+.mcuxpressoide_packages_support
+tp_final/.settings/
+CMSISv2p00_LPC17xx/.settings/
