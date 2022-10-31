@@ -28,7 +28,8 @@
 
 // Arreglo de arreglos donde se guardan las formas de onda
 // Posicion  de las seniales en el enum sgnls en config.h
-uint16_t signals[CANTIDADSGNLS][TRANSFERSIZE];
+uint32_t signals[CANTIDADSGNLS][TRANSFERSIZE];
+uint32_t actualSig[TRANSFERSIZE];
 //uint16_t sgnRect[TRANSFERSIZE]; // 0
 //uint16_t sgnTriang[TRANSFERSIZE]; // 1
 //uint16_t sgnSierra[TRANSFERSIZE]; // 2
@@ -39,9 +40,7 @@ uint8_t octActual = 4;
 // Arreglo de las 13 notas inicializado en la 4ta Octava
 uint16_t notas[13]= {262,277,294,311,330,349,370,392,415,440,466,494,523};
 // Lista a la que apunta el dma, se crea global para variar la senial
-GPDMA_LLI_Type listaDma;
 
-Stack stack;
 
 Stack stack;
 
@@ -50,12 +49,17 @@ int main(void) {
 
 	stack = CreateStack();
 
-	makeSignals(signals);
+	makeSignals(signals,actualSig);
 	cfgPines();
 	cfgDAC();
-	cfgDMA(signals[SGNRECT],&listaDma);
-	cfgTIM0();
-	cfgADC();
+	cfgDMA(&actualSig[0]);
+
+	// Se desactiva la interrupcion para que el dac no comience a pedir datos
+
+	//25MHz por clock del CPU 100MHz y transferSize
+
+	//cfgTIM0();
+	//cfgADC();
 	cfgNVIC();
 	/* TODO:	 *
 	 * Configurar Interruciones donde se cambie segun la tecla el valor de la frecuencia de la señal mediante el DACCOUNTERVAL
@@ -68,11 +72,11 @@ int main(void) {
 }
 
 void EINT0_IRQHandler(void){
-	prevSgn(&sgnActual,&listaDma,signals);
+	prevSgn(&sgnActual,signals);
 }
 
 void EINT1_IRQHandler(void){
-	nextSgn(&sgnActual,&listaDma,signals);
+	nextSgn(&sgnActual,signals);
 }
 
 void EINT2_IRQHandler(void){
@@ -85,16 +89,16 @@ void EINT3_IRQHandler(void){
 	//Pines del 0 al 11
 	for(uint8_t i = 0;i<12;i++){
 		//Ver si se solto la tecla
-		if(GPIO_GetIntStatus(0,i,0)){
-			RemoveTecla(&stack,i);
+		if(GPIO_GetIntStatus(0,i,1) == ENABLE){
+			InsertTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
 
 			GPIO_ClearInt(0,i);
 			return;
 		}
 		//Ver si se apreto la tecla
-		else if(GPIO_GetIntStatus(0,i,1)){
-			InsertTecla(&stack,i);
+		else if(GPIO_GetIntStatus(0,i,0) == ENABLE){
+			RemoveTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
 
 			GPIO_ClearInt(0,i);

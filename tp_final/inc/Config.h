@@ -16,11 +16,11 @@
 
 void cfgPines();
 void cfgDAC();
-void cfgDMA(uint16_t sgnInicial[],GPDMA_LLI_Type *listaDma);
+void cfgDMA(uint32_t* actualSig);
 void cfgNVIC();
 void cfgADC();
 void cfgTIM0();
-void makeSignals(uint16_t signals[][TRANSFERSIZE]);
+void makeSignals(uint32_t signals[][TRANSFERSIZE],uint32_t actualSig[TRANSFERSIZE]);
 
 
 #endif /* CONFIG_H_ */

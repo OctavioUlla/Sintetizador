@@ -18,6 +18,7 @@ void cfgPines(){
 	for(int i = 0; i<12; i++){
 		pincfg.Pinnum = i;
 		PINSEL_ConfigPin(&pincfg); // Se configuran los pines del 0 al 11
+		GPIO_ClearInt(0,i);
 	}
 	pincfg.Pinnum = 15; // Se configura la 13ra tecla, puerto 15
 	PINSEL_ConfigPin(&pincfg);
@@ -46,49 +47,57 @@ void cfgPines(){
 	extcfg.EXTI_Line = EXTI_EINT3;
 	EXTI_Config(&extcfg);
 
+	// Se configura el puerto 0.26 como AOUT
+		PINSEL_CFG_Type dac;
+		dac.Portnum = 0;
+		dac.Pinnum = 26;
+		dac.Pinmode = 0;
+		dac.Funcnum = 2;
+		dac.OpenDrain = PINSEL_PINMODE_NORMAL;
+		PINSEL_ConfigPin(&dac); // Se prende el DAC
+
 }
 
 // Funcion que configura el DMA
 void cfgDAC(){
-	DAC_Init(LPC_DAC);
+
 
 	// Se configura el DAC
 	DAC_CONVERTER_CFG_Type daccfg;
-	daccfg.CNT_ENA = 1; // Se habilita el timeout counter
-	daccfg.DBLBUF_ENA = 0; // Se deshabilita el doble buffereo
-	daccfg.DMA_ENA = 1; // Se habilita las request a DMA
+	daccfg.CNT_ENA = SET; // Se habilita el timeout counter
+	//daccfg.DBLBUF_ENA = 0; // Se deshabilita el doble buffereo
+	daccfg.DMA_ENA = SET; // Se habilita las request a DMA
+	DAC_Init(LPC_DAC);
 	DAC_ConfigDAConverterControl(LPC_DAC,&daccfg);
 
 }
 
 // Funcion que configura el DMA y prend el DMA
-void cfgDMA(uint16_t sgnInicial[],GPDMA_LLI_Type *listaDma){
+void cfgDMA(uint32_t* actualSig){
+
+	NVIC_DisableIRQ(DMA_IRQn);
+
+	GPDMA_LLI_Type listaDma;
 	GPDMA_Init();
 	// Se inicializa el DMA apuntando a la lista de la señal rectangula
-	listaDma->NextLLI = (uint32_t) &listaDma;
-	listaDma->SrcAddr = (uint32_t) sgnInicial;
-	listaDma->DstAddr = (uint32_t) &(LPC_DAC ->DACR);
-	listaDma->Control = TRANSFERSIZE | (1 << 18) | ( 1 << 21);
+	listaDma.NextLLI = (uint32_t) &listaDma;
+	listaDma.SrcAddr = (uint32_t) actualSig;
+	listaDma.DstAddr = (uint32_t) &(LPC_DAC ->DACR);
+	listaDma.Control = TRANSFERSIZE | (2 << 18) | ( 2 << 21)| (1 << 26);
 
 	GPDMA_Channel_CFG_Type dmacfg;
 	dmacfg.ChannelNum = 0;
+	dmacfg.DstMemAddr = 0;
 	dmacfg.TransferSize = TRANSFERSIZE;
+	dmacfg.TransferWidth = 0;
 	dmacfg.TransferType = GPDMA_TRANSFERTYPE_M2P;
-	dmacfg.SrcMemAddr = (uint32_t) listaDma->SrcAddr;
+	dmacfg.SrcMemAddr = (uint32_t) listaDma.SrcAddr;
+	dmacfg.SrcConn = 0;
 	dmacfg.DstConn = GPDMA_CONN_DAC;
 	dmacfg.DMALLI = (uint32_t) &listaDma;
 
 	GPDMA_Setup(&dmacfg);
 	GPDMA_ChannelCmd(0,DISABLE);
-	// Se desactiva la interrupcion para que el dac no comience a pedir datos
-
-	// Se configura el puerto 0.26 como AOUT
-	PINSEL_CFG_Type dac;
-	dac.Portnum = 0;
-	dac.Pinnum = 26;
-	dac.Pinmode = 2;
-	dac.OpenDrain = PINSEL_PINMODE_NORMAL;
-	PINSEL_ConfigPin(&dac); // Se prende el DAC
 }
 
 //Funcion que configura el ADC
@@ -154,18 +163,20 @@ void cfgNVIC(){
 }
 
 //Funcion que crea las señales basicas
-void makeSignals(uint16_t signals[][TRANSFERSIZE]){
+void makeSignals(uint32_t signals[][TRANSFERSIZE],uint32_t actualSig[TRANSFERSIZE]){
 	uint16_t i;
 	uint16_t pendiente = DACSIZE/TRANSFERSIZE;
 
 	for(i=0;i<TRANSFERSIZE;i++){
 		if(i<TRANSFERSIZE/2){
-			signals[SGNRECT][i]=0;
-			signals[SGNTRIANG][i]=i*pendiente*2;
+			signals[SGNRECT][i]=(0<<6);
+			actualSig[i]=((i*pendiente*2)<<6);
+			signals[SGNTRIANG][i]=((i*pendiente*2)<<6);
 		}else{
-			signals[SGNRECT][i]=DACSIZE-1;
-			signals[SGNTRIANG][i]=(TRANSFERSIZE-i-1)*pendiente*2;
+			signals[SGNRECT][i]= ((DACSIZE-1) <<6);
+			actualSig[i]= (((TRANSFERSIZE-i-1)*pendiente*2)<< 6);
+			signals[SGNTRIANG][i]=(((TRANSFERSIZE-i-1)*pendiente*2)<< 6);
 		}
-		signals[SGNSIERRA][i]=i*pendiente;
+		signals[SGNSIERRA][i]=((i*pendiente)<<6);
 	}
 }

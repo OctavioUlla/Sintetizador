@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "Teclas.h"
 #include "lpc17xx_dac.h"
+#include "lpc17xx_gpdma.h"
 #include "Const.h"
 
 Stack CreateStack()
@@ -79,8 +80,11 @@ void UpdateDMAFrecuency(Stack *stack,uint16_t *notas){
 	int tecla = GetNumTecla(stack);
 
 	if (tecla == -1){
+		GPDMA_ChannelCmd(0,DISABLE);
 		return;
 	}
+
+	GPDMA_ChannelCmd(0,ENABLE);
 
 	//25MHz por clock del CPU 100MHz y transferSize
 	uint32_t dmaCounter = (25 * 1000000)/(notas[tecla]*TRANSFERSIZE);
