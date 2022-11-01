@@ -14,6 +14,7 @@
 #include "lpc17xx_gpio.h"
 #include "lpc17xx_exti.h"
 #include "lpc17xx_gpdma.h"
+#include "lpc17xx_systick.h"
 #include <cr_section_macros.h>
 
 #include <stdio.h>
@@ -51,8 +52,10 @@ int main(void) {
 
 	makeSignals(signals,actualSig);
 	cfgPines();
+	cfgTIM1();
 	cfgDAC();
 	cfgDMA(&actualSig[0]);
+
 	//cfgTIM0();
 	//cfgADC();
 	cfgNVIC();
@@ -62,6 +65,8 @@ int main(void) {
 	 * requests cuando se levanta la tecla
 	 * Configurar el ADC para que cambie los valores del actualSig
 */
+
+
 	while(1);
     return 0 ;
 }
@@ -87,21 +92,25 @@ void EINT2_IRQHandler(void){
 
 // Handler del cambio a octava superior y las otras teclas del teclado
 void EINT3_IRQHandler(void){
+	// Deboucing
+	TIM_Cmd(LPC_TIM1,ENABLE);
+	while(TIM_GetIntStatus(LPC_TIM1,TIM_MR0_INT) != SET);
+	TIM_ClearIntPending(LPC_TIM1,TIM_MR0_INT);
 
 	//Pines del 0 al 11
 	for(uint8_t i = 0;i<12;i++){
-		// Se ve si se toca una tecla
-		if(GPIO_GetIntStatus(0,i,1) == ENABLE){
-			InsertTecla(&stack,i);
+		// Se ve si se suelta una tecla
+		if(GPIO_GetIntStatus(0,i,0) == ENABLE){
+			RemoveTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
 
 			GPIO_ClearInt(0,(1<<i));
 			EXTI_ClearEXTIFlag(EXTI_EINT3);
 			return;
 		}
-		// Se ve si se suelta una tecla
-		else if(GPIO_GetIntStatus(0,i,0) == ENABLE){
-			RemoveTecla(&stack,i);
+		// Se ve si se aprieta una tecla
+		else if(GPIO_GetIntStatus(0,i,1) == ENABLE){
+			InsertTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
 
 			GPIO_ClearInt(0,(1<<i));
@@ -114,7 +123,7 @@ void EINT3_IRQHandler(void){
 	if(GPIO_GetIntStatus(0,15,0)){
 		RemoveTecla(&stack,15);
 		UpdateDMAFrecuency(&stack,notas);
-
+		GPDMA_ChannelCmd(0,ENABLE);
 		GPIO_ClearInt(0,1<<15);
 		EXTI_ClearEXTIFlag(EXTI_EINT3);
 		return;

@@ -26,6 +26,7 @@ void InsertTecla(Stack *stack, int numTecla)
     // Crear ultima tecla tocada
     Tecla *tecla = malloc(sizeof(Tecla));
     tecla->siguiente = NULL;
+    tecla->anterior = NULL;
     tecla->numTecla = numTecla;
 
     // Linkear penultima tecla con ultima
@@ -84,9 +85,8 @@ void UpdateDMAFrecuency(Stack *stack,uint16_t *notas){
 		return;
 	}
 
-	GPDMA_ChannelCmd(0,ENABLE);
-
 	//25MHz por clock del CPU 100MHz y transferSize
 	uint32_t dmaCounter = (25 * 1000000)/(notas[tecla]*TRANSFERSIZE);
 	DAC_SetDMATimeOut(LPC_DAC,dmaCounter);
+	GPDMA_ChannelCmd(0,ENABLE);
 }

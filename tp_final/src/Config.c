@@ -23,9 +23,9 @@ void cfgPines(){
 	}
 	pincfg.Pinnum = 15; // Se configura la 13ra tecla, puerto 15
 	PINSEL_ConfigPin(&pincfg);
-	GPIO_ClearInt(0,(0xFFF || (1<<15)));
-	GPIO_IntCmd(0,(0xFFF || (1<<15)),0); // Se habilitan interrupciones por flanco de subida y de bajada
-	GPIO_IntCmd(0,(0xFFF || (1<<15)),1);
+	GPIO_ClearInt(0,(0xFFF | (1<<15)));
+	GPIO_IntCmd(0,(0xFFF | (1<<15)),0); // Se habilitan interrupciones por flanco de subida y de bajada
+	GPIO_IntCmd(0,(0xFFF | (1<<15)),1);
 
 
 	// Se configuran las teclas de control de ondas y de cambio de octavas
@@ -71,25 +71,25 @@ void cfgDAC(){
 	// Se configura el DAC
 	DAC_CONVERTER_CFG_Type daccfg;
 	daccfg.CNT_ENA = SET; // Se habilita el timeout counter
-	//daccfg.DBLBUF_ENA = 0; // Se deshabilita el doble buffereo
 	daccfg.DMA_ENA = SET; // Se habilita las request a DMA
 	DAC_Init(LPC_DAC);
 	DAC_ConfigDAConverterControl(LPC_DAC,&daccfg);
 
+
 }
 
-// Funcion que configura el DMA y prend el DMA
+// Funcion que configura el DMA y prende el DMA
 void cfgDMA(uint32_t* actualSig){
-
+	static GPDMA_LLI_Type listaDma;
 	NVIC_DisableIRQ(DMA_IRQn);
 
-	GPDMA_LLI_Type listaDma;
+
 	GPDMA_Init();
 	// Se inicializa el DMA apuntando a la lista de la señal rectangula
 	listaDma.NextLLI = (uint32_t) &listaDma;
 	listaDma.SrcAddr = (uint32_t) actualSig;
 	listaDma.DstAddr = (uint32_t) &(LPC_DAC ->DACR);
-	listaDma.Control = TRANSFERSIZE | (2 << 18) | ( 2 << 21)| (1 << 26);
+	listaDma.Control = (TRANSFERSIZE | (2 << 18) | ( 2 << 21)| (1 << 26));
 
 	GPDMA_Channel_CFG_Type dmacfg;
 	dmacfg.ChannelNum = 0;
@@ -104,6 +104,8 @@ void cfgDMA(uint32_t* actualSig){
 
 	GPDMA_Setup(&dmacfg);
 	GPDMA_ChannelCmd(0,DISABLE);
+
+
 }
 
 //Funcion que configura el ADC
@@ -144,6 +146,24 @@ void cfgTIM0(){
 	 // El match sucede cada 50 clock del timer = 0.5mS
 	 TIM_ConfigMatch(LPC_TIM0, & match);
 	 TIM_Cmd(LPC_TIM0,ENABLE);
+}
+
+void cfgTIM1(){
+	TIM_TIMERCFG_Type timcfg;
+	timcfg.PrescaleOption = TIM_PRESCALE_USVAL;
+	timcfg.PrescaleValue = 1000;
+	// Prescaler en 1ms
+	TIM_Init(LPC_TIM1,TIM_TIMER_MODE, &timcfg);
+
+	 TIM_MATCHCFG_Type match;
+	 match.MatchChannel = 0;
+	 match.IntOnMatch = ENABLE;
+	 match.StopOnMatch = ENABLE;
+	 match.ResetOnMatch = ENABLE;
+	 match.ExtMatchOutputType =  TIM_EXTMATCH_NOTHING;
+	 match.MatchValue = 125;
+	 // 100 ms
+	 TIM_ConfigMatch(LPC_TIM1, &match);
 }
 
 //Funcion que configura el NVIC
