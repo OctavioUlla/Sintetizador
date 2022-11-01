@@ -14,16 +14,19 @@ void cfgPines(){
 	PINSEL_CFG_Type pincfg;
 	pincfg.Portnum = 0; // Puerto 0
 	pincfg.Funcnum = 0; // Funcion GPIO
+	pincfg.OpenDrain = PINSEL_PINMODE_NORMAL;
 	pincfg.Pinmode = PINSEL_PINMODE_PULLUP; // Resistencias de pull up
 	for(int i = 0; i<12; i++){
 		pincfg.Pinnum = i;
 		PINSEL_ConfigPin(&pincfg); // Se configuran los pines del 0 al 11
-		GPIO_ClearInt(0,i);
+
 	}
 	pincfg.Pinnum = 15; // Se configura la 13ra tecla, puerto 15
 	PINSEL_ConfigPin(&pincfg);
-	GPIO_IntCmd(0,(0xFF || (1<<15)),0); // Se habilitan interrupciones por flanco de subida y de bajada
-	GPIO_IntCmd(0,(0xFF || (1<<15)),1);
+	GPIO_ClearInt(0,(0xFFF || (1<<15)));
+	GPIO_IntCmd(0,(0xFFF || (1<<15)),0); // Se habilitan interrupciones por flanco de subida y de bajada
+	GPIO_IntCmd(0,(0xFFF || (1<<15)),1);
+
 
 	// Se configuran las teclas de control de ondas y de cambio de octavas
 	pincfg.Portnum = 2; // Puerto 2
@@ -36,32 +39,35 @@ void cfgPines(){
 	}
 	// Se configuran las interrupciones externas TODO(ver de cambiar por manejo de bytes)
 	EXTI_InitTypeDef extcfg;
-	extcfg.EXTI_Mode = EXTI_MODE_LEVEL_SENSITIVE;
+	extcfg.EXTI_Mode = EXTI_MODE_EDGE_SENSITIVE;
 	extcfg.EXTI_polarity = EXTI_POLARITY_LOW_ACTIVE_OR_FALLING_EDGE;
 	extcfg.EXTI_Line = EXTI_EINT0;
 	EXTI_Config(&extcfg);
+	EXTI_ClearEXTIFlag(EXTI_EINT0);
 	extcfg.EXTI_Line = EXTI_EINT1;
 	EXTI_Config(&extcfg);
+	EXTI_ClearEXTIFlag(EXTI_EINT1);
 	extcfg.EXTI_Line = EXTI_EINT2;
 	EXTI_Config(&extcfg);
+	EXTI_ClearEXTIFlag(EXTI_EINT2);
 	extcfg.EXTI_Line = EXTI_EINT3;
 	EXTI_Config(&extcfg);
+	EXTI_ClearEXTIFlag(EXTI_EINT3);
 
-	// Se configura el puerto 0.26 como AOUT
-		PINSEL_CFG_Type dac;
-		dac.Portnum = 0;
-		dac.Pinnum = 26;
-		dac.Pinmode = 0;
-		dac.Funcnum = 2;
-		dac.OpenDrain = PINSEL_PINMODE_NORMAL;
-		PINSEL_ConfigPin(&dac); // Se prende el DAC
 
 }
 
 // Funcion que configura el DMA
 void cfgDAC(){
 
-
+	// Se configura el puerto 0.26 como AOUT
+	PINSEL_CFG_Type dac;
+	dac.Portnum = 0;
+	dac.Pinnum = 26;
+	dac.Pinmode = 0;
+	dac.Funcnum = 2;
+	dac.OpenDrain = PINSEL_PINMODE_NORMAL;
+	PINSEL_ConfigPin(&dac); // Se prende el DAC
 	// Se configura el DAC
 	DAC_CONVERTER_CFG_Type daccfg;
 	daccfg.CNT_ENA = SET; // Se habilita el timeout counter

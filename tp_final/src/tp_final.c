@@ -17,8 +17,8 @@
 #include <cr_section_macros.h>
 
 #include <stdio.h>
-#include <Teclas.h>
 
+#include "Teclas.h"
 #include "Config.h"
 #include "Botones.h"
 
@@ -53,11 +53,6 @@ int main(void) {
 	cfgPines();
 	cfgDAC();
 	cfgDMA(&actualSig[0]);
-
-	// Se desactiva la interrupcion para que el dac no comience a pedir datos
-
-	//25MHz por clock del CPU 100MHz y transferSize
-
 	//cfgTIM0();
 	//cfgADC();
 	cfgNVIC();
@@ -65,69 +60,82 @@ int main(void) {
 	 * Configurar Interruciones donde se cambie segun la tecla el valor de la frecuencia de la señal mediante el DACCOUNTERVAL
 	 * y empiece a pedir datos(HABILIAR LAS REQ DEL CANAL 0 del DMA) cuando se presiona un tecla, y que el DMA deje de recibir
 	 * requests cuando se levanta la tecla
-	 * Configurar el ADC para que cambie los valores de
+	 * Configurar el ADC para que cambie los valores del actualSig
 */
 	while(1);
     return 0 ;
 }
 
+// Handler del cambio a señal previa
 void EINT0_IRQHandler(void){
 	prevSgn(&sgnActual,signals);
+	EXTI_ClearEXTIFlag(EXTI_EINT0);
 }
 
+// Handler del cambio a señal siguiente
 void EINT1_IRQHandler(void){
 	nextSgn(&sgnActual,signals);
+	EXTI_ClearEXTIFlag(EXTI_EINT1);
 }
 
+// Handler del cambio a octava superior
 void EINT2_IRQHandler(void){
 	aumentarOct(&octActual,notas);
+	EXTI_ClearEXTIFlag(EXTI_EINT2);
 
 }
 
+// Handler del cambio a octava superior y las otras teclas del teclado
 void EINT3_IRQHandler(void){
 
 	//Pines del 0 al 11
 	for(uint8_t i = 0;i<12;i++){
-		//Ver si se solto la tecla
+		// Se ve si se toca una tecla
 		if(GPIO_GetIntStatus(0,i,1) == ENABLE){
 			InsertTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
 
-			GPIO_ClearInt(0,i);
+			GPIO_ClearInt(0,(1<<i));
+			EXTI_ClearEXTIFlag(EXTI_EINT3);
 			return;
 		}
-		//Ver si se apreto la tecla
+		// Se ve si se suelta una tecla
 		else if(GPIO_GetIntStatus(0,i,0) == ENABLE){
 			RemoveTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
 
-			GPIO_ClearInt(0,i);
+			GPIO_ClearInt(0,(1<<i));
+			EXTI_ClearEXTIFlag(EXTI_EINT3);
 			return;
 		}
 	}
 
-	//Ver si se apreto la tecla para pin 15
+	// Se ve si se toca la tecla para pin 15
 	if(GPIO_GetIntStatus(0,15,0)){
 		RemoveTecla(&stack,15);
 		UpdateDMAFrecuency(&stack,notas);
 
-		GPIO_ClearInt(0,15);
+		GPIO_ClearInt(0,1<<15);
+		EXTI_ClearEXTIFlag(EXTI_EINT3);
 		return;
 	}
-	//Ver si se apreto la tecla para pin 15
+	// Se ve si se suelta la tecla para pin 15
 	else if(GPIO_GetIntStatus(0,15,1)){
 		InsertTecla(&stack,15);
 		UpdateDMAFrecuency(&stack,notas);
 
-		GPIO_ClearInt(0,15);
+		GPIO_ClearInt(0,1<<15);
+		EXTI_ClearEXTIFlag(EXTI_EINT3);
 		return;
 	}
 
 	disminuirOct(&octActual, notas);
+	EXTI_ClearEXTIFlag(EXTI_EINT3);
 
 
 }
 
+// Handler del ADC
 void ADC_IRQHandler(){
 	//TODO esto
 }
