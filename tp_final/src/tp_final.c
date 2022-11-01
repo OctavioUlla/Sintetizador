@@ -14,11 +14,12 @@
 #include "lpc17xx_gpio.h"
 #include "lpc17xx_exti.h"
 #include "lpc17xx_gpdma.h"
+#include "lpc17xx_systick.h"
 #include <cr_section_macros.h>
 
 #include <stdio.h>
-#include <Teclas.h>
 
+#include "Teclas.h"
 #include "Config.h"
 #include "Botones.h"
 
@@ -28,7 +29,8 @@
 
 // Arreglo de arreglos donde se guardan las formas de onda
 // Posicion  de las seniales en el enum sgnls en config.h
-uint16_t signals[CANTIDADSGNLS][TRANSFERSIZE];
+uint32_t signals[CANTIDADSGNLS][TRANSFERSIZE];
+uint32_t actualSig[TRANSFERSIZE];
 //uint16_t sgnRect[TRANSFERSIZE]; // 0
 //uint16_t sgnTriang[TRANSFERSIZE]; // 1
 //uint16_t sgnSierra[TRANSFERSIZE]; // 2
@@ -39,87 +41,112 @@ uint8_t octActual = 4;
 // Arreglo de las 13 notas inicializado en la 4ta Octava
 uint16_t notas[13]= {262,277,294,311,330,349,370,392,415,440,466,494,523};
 // Lista a la que apunta el dma, se crea global para variar la senial
-GPDMA_LLI_Type listaDma;
 
-Stack stack;
 
 Stack stack;
 
 int main(void) {
+	SystemInit();
+
 	stack = CreateStack();
 
-	makeSignals(signals);
+	makeSignals(signals,actualSig);
 	cfgPines();
+	cfgTIM1();
 	cfgDAC();
-	cfgDMA(signals[SGNRECT],&listaDma);
+	cfgDMA(&actualSig[0]);
 
-	/* TODO:
-	 *
-	 * Configurar NVIC pata las inteerrupciones externas
-	 *
+	//cfgTIM0();
+	//cfgADC();
+	cfgNVIC();
+	/* TODO:	 *
 	 * Configurar Interruciones donde se cambie segun la tecla el valor de la frecuencia de la señal mediante el DACCOUNTERVAL
 	 * y empiece a pedir datos(HABILIAR LAS REQ DEL CANAL 0 del DMA) cuando se presiona un tecla, y que el DMA deje de recibir
 	 * requests cuando se levanta la tecla
+	 * Configurar el ADC para que cambie los valores del actualSig
 */
+
+
 	while(1);
     return 0 ;
 }
 
+// Handler del cambio a señal previa
 void EINT0_IRQHandler(void){
-	prevSgn(&sgnActual,&listaDma,signals);
+	prevSgn(&sgnActual,signals);
+	EXTI_ClearEXTIFlag(EXTI_EINT0);
 }
 
+// Handler del cambio a señal siguiente
 void EINT1_IRQHandler(void){
-	nextSgn(&sgnActual,&listaDma,signals);
+	nextSgn(&sgnActual,signals);
+	EXTI_ClearEXTIFlag(EXTI_EINT1);
 }
 
+// Handler del cambio a octava superior
 void EINT2_IRQHandler(void){
 	aumentarOct(&octActual,notas);
+	EXTI_ClearEXTIFlag(EXTI_EINT2);
 
 }
 
+// Handler del cambio a octava superior y las otras teclas del teclado
 void EINT3_IRQHandler(void){
+	// Deboucing
+	TIM_Cmd(LPC_TIM1,ENABLE);
+	while(TIM_GetIntStatus(LPC_TIM1,TIM_MR0_INT) != SET);
+	TIM_ClearIntPending(LPC_TIM1,TIM_MR0_INT);
 
 	//Pines del 0 al 11
 	for(uint8_t i = 0;i<12;i++){
-		//Ver si se solto la tecla
-		if(GPIO_GetIntStatus(0,i,0)){
+		// Se ve si se suelta una tecla
+		if(GPIO_GetIntStatus(0,i,0) == ENABLE){
 			RemoveTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
 
-			GPIO_ClearInt(0,i);
+			GPIO_ClearInt(0,(1<<i));
+			EXTI_ClearEXTIFlag(EXTI_EINT3);
 			return;
 		}
-		//Ver si se apreto la tecla
-		else if(GPIO_GetIntStatus(0,i,1)){
+		// Se ve si se aprieta una tecla
+		else if(GPIO_GetIntStatus(0,i,1) == ENABLE){
 			InsertTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
 
-			GPIO_ClearInt(0,i);
+			GPIO_ClearInt(0,(1<<i));
+			EXTI_ClearEXTIFlag(EXTI_EINT3);
 			return;
 		}
 	}
 
-	//Ver si se apreto la tecla para pin 15
+	// Se ve si se toca la tecla para pin 15
 	if(GPIO_GetIntStatus(0,15,0)){
 		RemoveTecla(&stack,15);
 		UpdateDMAFrecuency(&stack,notas);
-
-		GPIO_ClearInt(0,15);
+		GPDMA_ChannelCmd(0,ENABLE);
+		GPIO_ClearInt(0,1<<15);
+		EXTI_ClearEXTIFlag(EXTI_EINT3);
 		return;
 	}
-	//Ver si se apreto la tecla para pin 15
+	// Se ve si se suelta la tecla para pin 15
 	else if(GPIO_GetIntStatus(0,15,1)){
 		InsertTecla(&stack,15);
 		UpdateDMAFrecuency(&stack,notas);
 
-		GPIO_ClearInt(0,15);
+		GPIO_ClearInt(0,1<<15);
+		EXTI_ClearEXTIFlag(EXTI_EINT3);
 		return;
 	}
 
 	disminuirOct(&octActual, notas);
+	EXTI_ClearEXTIFlag(EXTI_EINT3);
 
 
+}
+
+// Handler del ADC
+void ADC_IRQHandler(){
+	//TODO esto
 }
 
 
