@@ -70,12 +70,10 @@ void cfgDAC(){
 	PINSEL_ConfigPin(&dac); // Se prende el DAC
 	// Se configura el DAC
 	DAC_CONVERTER_CFG_Type daccfg;
-	daccfg.CNT_ENA = SET; // Se habilita el timeout counter
+	daccfg.CNT_ENA = RESET; // Se habilita el timeout counter
 	daccfg.DMA_ENA = SET; // Se habilita las request a DMA
 	DAC_Init(LPC_DAC);
 	DAC_ConfigDAConverterControl(LPC_DAC,&daccfg);
-
-
 }
 
 // Funcion que configura el DMA y prende el DMA
@@ -103,7 +101,7 @@ void cfgDMA(uint32_t* actualSig){
 	dmacfg.DMALLI = (uint32_t) &listaDma;
 
 	GPDMA_Setup(&dmacfg);
-	GPDMA_ChannelCmd(0,DISABLE);
+	GPDMA_ChannelCmd(0,ENABLE);
 
 
 }
@@ -120,8 +118,8 @@ void cfgADC(){
 	adc.Pinnum = 24;
 	PINSEL_ConfigPin(&adc);
 	//  Se configura el ADC
-	ADC_ChannelCmd(LPC_ADC,0,ENABLE);
-	ADC_ChannelCmd(LPC_ADC,0,ENABLE);
+	ADC_ChannelCmd(LPC_ADC,0,ENABLE); // Canal par el filtro cutoff
+	ADC_ChannelCmd(LPC_ADC,1,ENABLE); // Canal par el pitch
 	ADC_StartCmd(LPC_ADC,ADC_START_ON_MAT01);
 	ADC_EdgeStartConfig(LPC_ADC,ADC_START_ON_RISING);
 	ADC_IntConfig(LPC_ADC,ADC_ADGINTEN,ENABLE);
@@ -161,7 +159,7 @@ void cfgTIM1(){
 	 match.StopOnMatch = ENABLE;
 	 match.ResetOnMatch = ENABLE;
 	 match.ExtMatchOutputType =  TIM_EXTMATCH_NOTHING;
-	 match.MatchValue = 125;
+	 match.MatchValue = 50;
 	 // 100 ms
 	 TIM_ConfigMatch(LPC_TIM1, &match);
 }

@@ -78,15 +78,21 @@ void RemoveTecla(Stack *stack, int numTecla)
 
 void UpdateDMAFrecuency(Stack *stack,uint16_t *notas){
 
+	DAC_CONVERTER_CFG_Type daccfg;
+
 	int tecla = GetNumTecla(stack);
 
 	if (tecla == -1){
-		GPDMA_ChannelCmd(0,DISABLE);
+		//GPDMA_ChannelCmd(0,DISABLE);
+		daccfg.CNT_ENA = RESET; // Se habilita el timeout counter
+		DAC_ConfigDAConverterControl(LPC_DAC,&daccfg);
 		return;
 	}
 
 	//25MHz por clock del CPU 100MHz y transferSize
 	uint32_t dmaCounter = (25 * 1000000)/(notas[tecla]*TRANSFERSIZE);
 	DAC_SetDMATimeOut(LPC_DAC,dmaCounter);
-	GPDMA_ChannelCmd(0,ENABLE);
+	//GPDMA_ChannelCmd(0,ENABLE);
+	daccfg.CNT_ENA = SET; // Se habilita el timeout counter
+	DAC_ConfigDAConverterControl(LPC_DAC,&daccfg);
 }
