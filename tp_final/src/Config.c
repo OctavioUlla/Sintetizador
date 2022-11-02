@@ -8,6 +8,7 @@
 #include "Config.h"
 #include "Delay.h"
 #include "Display.h"
+#include "i2c.h"
 
 // Funcion que configura los puertos
 void cfgPines(){
@@ -175,29 +176,9 @@ void cfgTIM2(){
 }
 
 void cfgI2C(){
-	PINSEL_CFG_Type i2cA;
-	i2cA.Portnum = 0;
-	i2cA.Pinnum = 27;
-	i2cA.Pinmode = 2;
-	i2cA.Funcnum = 1;
-	i2cA.OpenDrain = PINSEL_PINMODE_OPENDRAIN;
-	PINSEL_ConfigPin(&i2cA);
+	i2c0_init(MODE_400kbps, 3);
 
-	PINSEL_CFG_Type i2cCl;
-	i2cCl.Portnum = 0;
-	i2cCl.Pinnum = 28;
-	i2cCl.Pinmode = 2;
-	i2cCl.Funcnum = 1;
-	i2cCl.OpenDrain = PINSEL_PINMODE_OPENDRAIN;
-	PINSEL_ConfigPin(&i2cCl);
-
-	//100KHz!?
-	I2C_Init(LPC_I2C0, 100000);
-
-	I2C_Cmd(LPC_I2C0, ENABLE);
-
-	LPC_I2C0->I2CONSET = I2C_I2CONSET_AA;
-
+	// 4 bit initialisation
 	Delay(50);  // wait for >40ms
 	sendCmd(0x30);
 	Delay(5);  // wait for >4.1ms
@@ -208,7 +189,7 @@ void cfgI2C(){
 	sendCmd(0x20);  // 4bit mode
 	Delay(10);
 
-	 // dislay initialisation
+	// dislay initialisation
 	sendCmd(0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
 	Delay(1);
 	sendCmd(0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
@@ -218,10 +199,9 @@ void cfgI2C(){
 	Delay(1);
 	sendCmd(0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
 	Delay(1);
-	sendCmd(0x0C); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
+	sendCmd(0x0F); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
 
-	Delay(1);
-	sendData('H');
+	sendData(0x48);
 }
 
 

@@ -1,6 +1,5 @@
 #include "Display.h"
 #include "lpc17xx_i2c.h"
-#include "i2c_17xx_40xx.h"
 
 void sendCmd(char cmd){
 	char data_u, data_l;
@@ -12,7 +11,7 @@ void sendCmd(char cmd){
 	data_t[2] = data_l|0x0C;  //en=1, rs=0
 	data_t[3] = data_l|0x08;  //en=0, rs=0
 
-	Chip_I2C_MasterSend(I2C0,(0x27<<1),&data_t[0],4);
+	i2c0_send(0x27, data_t, 4);
 }
 
 void sendData(char data){
@@ -25,5 +24,5 @@ void sendData(char data){
 	data_t[2] = data_l|0x0D;  //en=1, rs=1
 	data_t[3] = data_l|0x09;  //en=0, rs=1
 
-	Chip_I2C_MasterSend(I2C0,(0x27<<1),&data_t[0],4);
+	i2c0_send(0x27, data_t, 4);
 }
