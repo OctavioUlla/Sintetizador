@@ -7,7 +7,7 @@
 
 #include "Config.h"
 #include "Delay.h"
-
+#include "Display.h"
 
 // Funcion que configura los puertos
 void cfgPines(){
@@ -169,8 +169,8 @@ void cfgTIM1(){
 void cfgTIM2(){
 	TIM_TIMERCFG_Type timcfg;
 	timcfg.PrescaleOption = TIM_PRESCALE_USVAL;
-	timcfg.PrescaleValue = 1000;
-	// Prescaler en 1ms
+	timcfg.PrescaleValue = 100;
+	// Prescaler en 0.1ms
 	TIM_Init(LPC_TIM2,TIM_TIMER_MODE, &timcfg);
 }
 
@@ -196,20 +196,32 @@ void cfgI2C(){
 
 	I2C_Cmd(LPC_I2C0, ENABLE);
 
-	uint8_t data[] = {0x30};
-
-	I2C_M_SETUP_Type transferCfg;
-	transferCfg.tx_data = data;
-	transferCfg.tx_length = 1;
-	transferCfg.rx_data = NULL;
-	transferCfg.rx_length = 0;
-	transferCfg.retransmissions_max = 2;
-	transferCfg.sl_addr7bit = 0x27;
-
 	LPC_I2C0->I2CONSET = I2C_I2CONSET_AA;
 
-	Delay(50);
-	I2C_MasterTransferData(LPC_I2C0,&transferCfg,I2C_TRANSFER_POLLING);
+	Delay(50);  // wait for >40ms
+	sendCmd(0x30);
+	Delay(5);  // wait for >4.1ms
+	sendCmd(0x30);
+	Delay(1);  // wait for >100us
+	sendCmd(0x30);
+	Delay(10);
+	sendCmd(0x20);  // 4bit mode
+	Delay(10);
+
+	 // dislay initialisation
+	sendCmd(0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
+	Delay(1);
+	sendCmd(0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
+	Delay(1);
+	sendCmd(0x01);  // clear display
+	Delay(1);
+	Delay(1);
+	sendCmd(0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
+	Delay(1);
+	sendCmd(0x0C); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
+
+	Delay(1);
+	sendData('H');
 }
 
 

@@ -53,6 +53,7 @@ int main(void) {
 	makeSignals(signals,actualSig);
 	cfgPines();
 	cfgTIM1();
+	cfgTIM2();
 	cfgDAC();
 	cfgDMA(&actualSig[0]);
 
