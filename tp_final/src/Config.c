@@ -4,8 +4,8 @@
  *  Created on: 28 oct. 2022
  *      Author: ferminverdolini
  */
-#include "Config.h"
 
+#include "Config.h"
 
 // Funcion que configura los puertos
 void cfgPines(){
@@ -163,6 +163,30 @@ void cfgTIM1(){
 	 // 100 ms
 	 TIM_ConfigMatch(LPC_TIM1, &match);
 }
+
+void cfgI2C(){
+	PINSEL_CFG_Type i2cA;
+	i2cA.Portnum = 0;
+	i2cA.Pinnum = 27;
+	i2cA.Pinmode = 2;
+	i2cA.Funcnum = 1;
+	i2cA.OpenDrain = PINSEL_PINMODE_OPENDRAIN;
+	PINSEL_ConfigPin(&i2cA);
+
+	PINSEL_CFG_Type i2cCl;
+	i2cCl.Portnum = 0;
+	i2cCl.Pinnum = 28;
+	i2cCl.Pinmode = 2;
+	i2cCl.Funcnum = 1;
+	i2cCl.OpenDrain = PINSEL_PINMODE_OPENDRAIN;
+	PINSEL_ConfigPin(&i2cCl);
+
+	//100KHz!?
+	I2C_Init(LPC_I2C0, 100000);
+
+	I2C_Cmd(LPC_I2C0, ENABLE);
+}
+
 
 //Funcion que configura el NVIC
 void cfgNVIC(){

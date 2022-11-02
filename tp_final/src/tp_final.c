@@ -56,6 +56,8 @@ int main(void) {
 	cfgDAC();
 	cfgDMA(&actualSig[0]);
 
+	cfgI2C();
+
 	//cfgTIM0();
 	//cfgADC();
 	cfgNVIC();
@@ -66,8 +68,19 @@ int main(void) {
 	 * Configurar el ADC para que cambie los valores del actualSig
 */
 
+	uint8_t data[4] = {'H','O','L','A'};
 
-	while(1);
+	I2C_M_SETUP_Type transferCfg;
+	transferCfg.tx_data = &data[0];
+	transferCfg.tx_length = sizeof(data)/sizeof(uint8_t);
+	transferCfg.rx_data = NULL;
+	transferCfg.rx_length = 0;
+	transferCfg.retransmissions_max = 2;
+	transferCfg.sl_addr7bit = LPC_I2C0->I2DAT;
+
+	while(1){
+		//I2C_MasterTransferData(LPC_I2C0,&transferCfg,I2C_TRANSFER_POLLING);
+	};
     return 0 ;
 }
 
