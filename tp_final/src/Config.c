@@ -6,6 +6,8 @@
  */
 
 #include "Config.h"
+#include "Delay.h"
+
 
 // Funcion que configura los puertos
 void cfgPines(){
@@ -164,6 +166,14 @@ void cfgTIM1(){
 	 TIM_ConfigMatch(LPC_TIM1, &match);
 }
 
+void cfgTIM2(){
+	TIM_TIMERCFG_Type timcfg;
+	timcfg.PrescaleOption = TIM_PRESCALE_USVAL;
+	timcfg.PrescaleValue = 1000;
+	// Prescaler en 1ms
+	TIM_Init(LPC_TIM2,TIM_TIMER_MODE, &timcfg);
+}
+
 void cfgI2C(){
 	PINSEL_CFG_Type i2cA;
 	i2cA.Portnum = 0;
@@ -185,6 +195,21 @@ void cfgI2C(){
 	I2C_Init(LPC_I2C0, 100000);
 
 	I2C_Cmd(LPC_I2C0, ENABLE);
+
+	uint8_t data[] = {0x30};
+
+	I2C_M_SETUP_Type transferCfg;
+	transferCfg.tx_data = data;
+	transferCfg.tx_length = 1;
+	transferCfg.rx_data = NULL;
+	transferCfg.rx_length = 0;
+	transferCfg.retransmissions_max = 2;
+	transferCfg.sl_addr7bit = 0x27;
+
+	LPC_I2C0->I2CONSET = I2C_I2CONSET_AA;
+
+	Delay(50);
+	I2C_MasterTransferData(LPC_I2C0,&transferCfg,I2C_TRANSFER_POLLING);
 }
 
 
