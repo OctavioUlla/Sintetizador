@@ -119,13 +119,11 @@ void cfgADC(){
 	adc.Pinnum = 24;
 	PINSEL_ConfigPin(&adc);
 	//  Se configura el ADC
-	ADC_Init(LPC_ADC,20000);
+	ADC_Init(LPC_ADC,10000);
 	ADC_ChannelCmd(LPC_ADC,0,ENABLE); // Canal par el filtro cutoff
 	//ADC_ChannelCmd(LPC_ADC,1,ENABLE); // Canal par el pitch
 	ADC_StartCmd(LPC_ADC,ADC_START_NOW);
 	//ADC_EdgeStartConfig(LPC_ADC,ADC_START_ON_RISING);
-	ADC_IntConfig(LPC_ADC,ADC_ADINTEN0,SET);
-	ADC_IntConfig(LPC_ADC,ADC_ADINTEN1,SET);
 	ADC_IntConfig(LPC_ADC,ADC_ADGINTEN,SET);
 
 
@@ -177,7 +175,7 @@ void cfgNVIC(){
 	NVIC_SetPriority(EINT1_IRQn,2);
 	NVIC_SetPriority(EINT2_IRQn,3);
 	NVIC_SetPriority(EINT3_IRQn,4);
-	NVIC_SetPriority(ADC_IRQn,0);
+	NVIC_SetPriority(ADC_IRQn,5);
 	// Se habilitan las interrupciones
 	NVIC_ClearPendingIRQ(EINT0_IRQn);
 	NVIC_EnableIRQ(EINT0_IRQn);
@@ -200,13 +198,15 @@ void makeSignals(uint32_t signals[][TRANSFERSIZE],uint32_t actualSig[TRANSFERSIZ
 	for(i=0;i<TRANSFERSIZE;i++){
 		if(i<TRANSFERSIZE/2){
 			signals[SGNRECT][i]=(0<<6);
-			actualSig[i]=((i*pendiente*2)<<6);
 			signals[SGNTRIANG][i]=((i*pendiente*2)<<6);
+			//actualSig[i]= signals[SGNTRIANG][i];
 		}else{
 			signals[SGNRECT][i]= ((DACSIZE-1) <<6);
-			actualSig[i]= (((TRANSFERSIZE-i-1)*pendiente*2)<< 6);
 			signals[SGNTRIANG][i]=(((TRANSFERSIZE-i-1)*pendiente*2)<< 6);
+			//actualSig[i]=signals[SGNTRIANG][i];
 		}
 		signals[SGNSIERRA][i]=((i*pendiente)<<6);
+		signals[SGNSIERRAINV][TRANSFERSIZE - i-1] = signals[SGNSIERRA][i];
+		actualSig[TRANSFERSIZE - i-1] = signals[SGNSIERRA][i];
 	}
 }
