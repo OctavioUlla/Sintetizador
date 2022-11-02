@@ -36,7 +36,7 @@ uint32_t actualSig[TRANSFERSIZE];
 //uint16_t sgnSierra[TRANSFERSIZE]; // 2
 
 // Entero para seleccionar la señal
-uint8_t sgnActual = 1;
+uint8_t sgnActual = 0;
 uint8_t octActual = 4;
 // Arreglo de las 13 notas inicializado en la 4ta Octava
 uint16_t notas[13]= {262,277,294,311,330,349,370,392,415,440,466,494,523};
@@ -46,7 +46,7 @@ uint16_t alpha = 420;
 Stack stack;
 
 int main(void) {
-	SystemInit();
+ 	SystemInit();
 
 	stack = CreateStack();
 
@@ -57,7 +57,7 @@ int main(void) {
 	cfgDMA(&actualSig[0]);
 
 	//cfgTIM0();
-	//cfgADC();
+	cfgADC();
 	cfgNVIC();
 	/* TODO:	 *
 	 * Configurar Interruciones donde se cambie segun la tecla el valor de la frecuencia de la señal mediante el DACCOUNTERVAL
@@ -66,25 +66,37 @@ int main(void) {
 	 * Configurar el ADC para que cambie los valores del actualSig
 */
 
-
 	while(1);
-    return 0 ;
+
+    return 0;
 }
 
 // Handler del cambio a señal previa
 void EINT0_IRQHandler(void){
+	TIM_Cmd(LPC_TIM1,ENABLE);
+	while(TIM_GetIntStatus(LPC_TIM1,TIM_MR0_INT) != SET);
+	TIM_ClearIntPending(LPC_TIM1,TIM_MR0_INT);
+
 	prevSgn(&sgnActual,signals);
 	EXTI_ClearEXTIFlag(EXTI_EINT0);
 }
 
 // Handler del cambio a señal siguiente
 void EINT1_IRQHandler(void){
+	TIM_Cmd(LPC_TIM1,ENABLE);
+	while(TIM_GetIntStatus(LPC_TIM1,TIM_MR0_INT) != SET);
+	TIM_ClearIntPending(LPC_TIM1,TIM_MR0_INT);
+
 	nextSgn(&sgnActual,signals);
 	EXTI_ClearEXTIFlag(EXTI_EINT1);
 }
 
 // Handler del cambio a octava superior
 void EINT2_IRQHandler(void){
+	TIM_Cmd(LPC_TIM1,ENABLE);
+	while(TIM_GetIntStatus(LPC_TIM1,TIM_MR0_INT) != SET);
+	TIM_ClearIntPending(LPC_TIM1,TIM_MR0_INT);
+
 	aumentarOct(&octActual,notas);
 	EXTI_ClearEXTIFlag(EXTI_EINT2);
 
@@ -145,25 +157,28 @@ void EINT3_IRQHandler(void){
 }
 
 // Handler del ADC
-void ADC_IRQHandler(){
-	static int16_t prev_cutoff = 0;
+void ADC_IRQHandler(void){
+	static uint16_t prev_cutoff = 0;
 	static int16_t prev_pitch = 0;
-	static int16_t prev_sgn = 0;
-	int16_t cutoff = (int16_t)(((ADC_ChannelGetData(LPC_ADC,0)*alpha)/4097) + ((prev_cutoff*(4097-alpha))/4097));
-	int16_t pitch = (int16_t)(((ADC_ChannelGetData(LPC_ADC,1)*alpha)/4097) + ((prev_pitch*(4097-alpha))/4097));
-	if((cutoff-prev_cutoff) > 100 || (cutoff-prev_cutoff) < -100){
-		for(int i =0;i<TRANSFERSIZE;i++){
-			actualSig[i] = (int16_t)(((signals[sgnActual][i]*cutoff)/4097) + ((prev_sgn*(4097-cutoff))/4097));
+	static uint16_t prev_sgn = 0;
+	uint16_t cutoff = (uint16_t)(((ADC_ChannelGetData(LPC_ADC,0)*alpha)/4097) + ((prev_cutoff*(4097-alpha))/4097))*3;
+	//int16_t pitch = (int16_t)(((ADC_ChannelGetData(LPC_ADC,1)*alpha)/4097) + ((prev_pitch*(4097-alpha))/4097));
+	//if((cutoff-prev_cutoff) > 100 || (cutoff-prev_cutoff) < -100){
+	if(cutoff < 420){
+		for(int i =1;i<TRANSFERSIZE;i++){
+			actualSig[i] = (uint16_t)(((signals[sgnActual][i]*cutoff)/4097) + ((prev_sgn*(4097-cutoff))/4097));
 			prev_sgn = actualSig[i];
 		}
 	}
-	if((pitch-prev_pitch)>100 || (pitch-prev_pitch)< -100){
+	//}
+	/*if((pitch-prev_pitch)>100 || (pitch-prev_pitch)< -100){
 		for(int i =0; i<14;i++){
 			notas[i] = (uint16_t)((notas[i]*pitch)/4097);
 		}
 		uint32_t dmaCounter = (25 * 1000000)/(notas[GetNumTecla(&stack)]*TRANSFERSIZE);
 		DAC_SetDMATimeOut(LPC_DAC,dmaCounter);
-	}
+	}*/
+	ADC_StartCmd(LPC_ADC,ADC_START_NOW);
 
 }
 

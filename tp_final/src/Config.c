@@ -30,7 +30,7 @@ void cfgPines(){
 
 	// Se configuran las teclas de control de ondas y de cambio de octavas
 	pincfg.Portnum = 2; // Puerto 2
-	pincfg.Pinnum = 1; // Funcion EINT
+	pincfg.Funcnum = 1; // Funcion EINT
 	pincfg.OpenDrain = PINSEL_PINMODE_NORMAL;
 	pincfg.Pinmode = PINSEL_PINMODE_PULLUP; // Resistencias de pull up
 	for(int i = 10;i<14; i++){
@@ -112,17 +112,23 @@ void cfgADC(){
 	PINSEL_CFG_Type adc;
 	adc.Portnum = 0;
 	adc.OpenDrain = PINSEL_PINMODE_NORMAL;
-	adc.Pinmode = 1;
+	adc.Pinmode = 2;
+	adc.Funcnum = 1;
 	adc.Pinnum = 23;
 	PINSEL_ConfigPin(&adc);
 	adc.Pinnum = 24;
 	PINSEL_ConfigPin(&adc);
 	//  Se configura el ADC
+	ADC_Init(LPC_ADC,20000);
 	ADC_ChannelCmd(LPC_ADC,0,ENABLE); // Canal par el filtro cutoff
-	ADC_ChannelCmd(LPC_ADC,1,ENABLE); // Canal par el pitch
-	ADC_StartCmd(LPC_ADC,ADC_START_ON_MAT01);
-	ADC_EdgeStartConfig(LPC_ADC,ADC_START_ON_RISING);
-	ADC_IntConfig(LPC_ADC,ADC_ADGINTEN,ENABLE);
+	//ADC_ChannelCmd(LPC_ADC,1,ENABLE); // Canal par el pitch
+	ADC_StartCmd(LPC_ADC,ADC_START_NOW);
+	//ADC_EdgeStartConfig(LPC_ADC,ADC_START_ON_RISING);
+	ADC_IntConfig(LPC_ADC,ADC_ADINTEN0,SET);
+	ADC_IntConfig(LPC_ADC,ADC_ADINTEN1,SET);
+	ADC_IntConfig(LPC_ADC,ADC_ADGINTEN,SET);
+
+
 
 }
 
@@ -171,7 +177,7 @@ void cfgNVIC(){
 	NVIC_SetPriority(EINT1_IRQn,2);
 	NVIC_SetPriority(EINT2_IRQn,3);
 	NVIC_SetPriority(EINT3_IRQn,4);
-	NVIC_SetPriority(ADC_IRQn,5);
+	NVIC_SetPriority(ADC_IRQn,0);
 	// Se habilitan las interrupciones
 	NVIC_ClearPendingIRQ(EINT0_IRQn);
 	NVIC_EnableIRQ(EINT0_IRQn);

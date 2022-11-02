@@ -20,6 +20,7 @@ void cfgDMA(uint32_t* actualSig);
 void cfgNVIC();
 void cfgADC();
 void cfgTIM0();
+void cfgTIM1();
 void makeSignals(uint32_t signals[][TRANSFERSIZE],uint32_t actualSig[TRANSFERSIZE]);
 
 
