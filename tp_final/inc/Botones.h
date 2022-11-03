@@ -5,9 +5,9 @@
 #ifndef BOTONES_H_
 #define BOTONES_H_
 
-void prevSgn(uint8_t *sgnActual,uint32_t signals[][TRANSFERSIZE]);
-void nextSgn(uint8_t *sgnActual,uint32_t signals[][TRANSFERSIZE]);
-void disminuirOct(uint8_t *octActual, uint16_t notas[]);
-void aumentarOct(uint8_t *octActual, uint16_t notas[]);
+void prevSgn(uint8_t *sgnActual);
+void nextSgn(uint8_t *sgnActual);
+void disminuirOct(uint8_t *octActual);
+void aumentarOct(uint8_t *octActual);
 
 #endif /* BOTONES_H_ */

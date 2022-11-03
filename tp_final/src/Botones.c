@@ -1,35 +1,26 @@
 #include "Botones.h"
 
-void prevSgn(uint8_t *sgnActual,uint32_t signals[][TRANSFERSIZE]){
-	(*sgnActual)--;
-	if((*sgnActual)+1==0){
-		*sgnActual=CANTIDADSGNLS-1;
-	}
+void prevSgn(uint8_t *sgnActual){
+	if((*sgnActual) == 0){
+		(*sgnActual) = CANTIDADSGNLS-1;
+	}else (*sgnActual)--;
 }
-
-void nextSgn(uint8_t *sgnActual,uint32_t signals[][TRANSFERSIZE]){
-	(*sgnActual)++;
-	if(*sgnActual==CANTIDADSGNLS){
-		*sgnActual=0;
-	}
+// Funcion que pasa a la proxima señal
+void nextSgn(uint8_t *sgnActual){
+	if((*sgnActual) == (CANTIDADSGNLS-1)){
+		(*sgnActual)=0;
+	}else (*sgnActual)++;
 }
-
-void disminuirOct(uint8_t *octActual, uint16_t notas[]){
-	if(*octActual>0){
+// Funcion que disminuye octavas
+void disminuirOct(uint8_t *octActual){
+	if((*octActual)>0){
 		(*octActual)--;
-		for(int i = 0;i<13;i++){
-			notas[i]/=2;
-		}
 	}
 }
-
-void aumentarOct(uint8_t *octActual, uint16_t notas[]){
-	if(*octActual<8){
+// Funcion que aumenta octavas
+void aumentarOct(uint8_t *octActual){
+	if((*octActual)<8){
 		(*octActual)++;
-		for(int i = 0;i<13;i++){
-			notas[i]*=2;
-		}
 	}
 }
-
 
