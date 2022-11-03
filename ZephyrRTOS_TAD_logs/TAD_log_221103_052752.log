@@ -1,6 +1,0 @@
-"Task Aware Debugger for GDB" version 11.6.0 (202206271353)
-(c) 2016-2022 NXP Semiconductors, Inc.
-==================================
-05:27:31.891 INFO: [ZephyrRTOS] /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/tp_final/Debug/.config file could not be read
-05:27:31.892 INFO: [TadModel] DSF session ID 6 has started.
-05:27:52.505 INFO: [TadModel] DSF session ID 6 has ended.
