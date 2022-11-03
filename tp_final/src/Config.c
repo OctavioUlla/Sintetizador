@@ -121,7 +121,7 @@ void cfgADC(){
 	//  Se configura el ADC
 	ADC_Init(LPC_ADC,10000);
 	ADC_ChannelCmd(LPC_ADC,0,ENABLE); // Canal par el filtro cutoff
-	//ADC_ChannelCmd(LPC_ADC,1,ENABLE); // Canal par el pitch
+	ADC_ChannelCmd(LPC_ADC,1,ENABLE); // Canal par el pitch
 	ADC_StartCmd(LPC_ADC,ADC_START_NOW);
 	//ADC_EdgeStartConfig(LPC_ADC,ADC_START_ON_RISING);
 	ADC_IntConfig(LPC_ADC,ADC_ADGINTEN,SET);

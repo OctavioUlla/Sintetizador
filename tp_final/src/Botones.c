@@ -2,7 +2,7 @@
 
 void prevSgn(uint8_t *sgnActual,uint32_t signals[][TRANSFERSIZE]){
 	(*sgnActual)--;
-	if(*sgnActual<0){
+	if((*sgnActual)+1==0){
 		*sgnActual=CANTIDADSGNLS-1;
 	}
 }
@@ -15,7 +15,7 @@ void nextSgn(uint8_t *sgnActual,uint32_t signals[][TRANSFERSIZE]){
 }
 
 void disminuirOct(uint8_t *octActual, uint16_t notas[]){
-	if(*octActual>=0){
+	if((*octActual)+1==0){
 		(octActual)--;
 		for(int i = 0;i<13;i++){
 			notas[i]/=2;
