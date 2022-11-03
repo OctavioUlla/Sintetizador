@@ -158,29 +158,6 @@ void EINT3_IRQHandler(void){
 
 // Handler del ADC
 void ADC_IRQHandler(void){
-<<<<<<< HEAD
-	static uint16_t cutoff = 0;
-	static uint16_t pitch = 0;
-	uint16_t aux[13];
-	uint16_t prev_sgn;
-	uint16_t pePito = ADC_ChannelGetData(LPC_ADC,0);
-
-
-	cutoff = (uint16_t)(((ADC_ChannelGetData(LPC_ADC,0)*alpha)/4095) + ((cutoff*(4095-alpha))/4095));
-	//pitch = (int16_t)(((ADC_ChannelGetData(LPC_ADC,0)*alpha)/4095) + ((pitch*(4095-alpha))/4095));
-
-
-	if(cutoff > 5){
-		for(int i =0;i<TRANSFERSIZE;i++){
-			actualSig[i] = (uint16_t)(((signals[sgnActual][i]*cutoff)/4095) + ((prev_sgn*(4095-cutoff))/4095));
-			prev_sgn = actualSig[i];
-		}
-	}
-	if(pitch > 5){
-		for(int i =0; i<14;i++){
-			aux[i] = (uint16_t)(notas[i] + (notas[i]*(pitch-2048))/4095);
-	}
-=======
 	//uint16_t pePito = ADC_ChannelGetData(LPC_ADC,0);
 	uint16_t prev_sgn = 0;
 	uint16_t aux[13];
@@ -209,19 +186,12 @@ void ADC_IRQHandler(void){
 			aux[i] = (uint16_t)(notas[i] + (notas[i]*(pitch-2048))/4097);
 		}
 
->>>>>>> 68abe4a (Anda todo no rompan los huevos)
 		uint32_t dmaCounter =(uint32_t) (25 * 1000000)/(aux[GetNumTecla(&stack)]*TRANSFERSIZE);
 		DAC_SetDMATimeOut(LPC_DAC,dmaCounter);
 
 		ADC_ChannelCmd(LPC_ADC,1,DISABLE);
 		ADC_ChannelCmd(LPC_ADC,0,ENABLE);
 	}
-<<<<<<< HEAD
-
-	ADC_StartCmd(LPC_ADC,ADC_START_NOW);
-
-=======
->>>>>>> 68abe4a (Anda todo no rompan los huevos)
 }
 
 
