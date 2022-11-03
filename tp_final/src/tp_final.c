@@ -22,6 +22,7 @@
 #include "Teclas.h"
 #include "Config.h"
 #include "Botones.h"
+#include "Display.h"
 
 // TODO: insert other definitions and declarations here
 
@@ -53,11 +54,15 @@ int main(void) {
 	makeSignals(signals,actualSig);
 	cfgPines();
 	cfgTIM1();
+	cfgTIM2();
 	cfgDAC();
 	cfgDMA(&actualSig[0]);
 
+	cfgI2C();
+  
 	cfgTIM0();
 	cfgADC();
+  
 	cfgNVIC();
 	/* TODO:	 *
 	 * Configurar Interruciones donde se cambie segun la tecla el valor de la frecuencia de la señal mediante el DACCOUNTERVAL
@@ -66,9 +71,10 @@ int main(void) {
 	 * Configurar el ADC para que cambie los valores del actualSig
 */
 
+
 	while(1);
 
-    return 0;
+  return 0;
 }
 
 // Handler del cambio a señal previa

@@ -7,6 +7,7 @@
 #include "lpc17xx_gpio.h"
 #include "lpc17xx_exti.h"
 #include "lpc17xx_gpdma.h"
+#include "lpc17xx_i2c.h"
 #include <cr_section_macros.h>
 
 #include "Const.h"
@@ -21,6 +22,9 @@ void cfgNVIC();
 void cfgADC();
 void cfgTIM0();
 void cfgTIM1();
+void cfgTIM2();
+void cfgI2C();
+
 void makeSignals(uint32_t signals[][TRANSFERSIZE],uint32_t actualSig[TRANSFERSIZE]);
 
 

@@ -4,8 +4,10 @@
  *  Created on: 28 oct. 2022
  *      Author: ferminverdolini
  */
-#include "Config.h"
 
+#include "Config.h"
+#include "Delay.h"
+#include "Display.h"
 
 // Funcion que configura los puertos
 void cfgPines(){
@@ -102,8 +104,6 @@ void cfgDMA(uint32_t* actualSig){
 
 	GPDMA_Setup(&dmacfg);
 	GPDMA_ChannelCmd(0,ENABLE);
-
-
 }
 
 //Funcion que configura el ADC
@@ -164,9 +164,57 @@ void cfgTIM1(){
 	 match.ResetOnMatch = ENABLE;
 	 match.ExtMatchOutputType =  TIM_EXTMATCH_NOTHING;
 	 match.MatchValue = 50;
-	 // 100 ms
+	 // 50 ms
 	 TIM_ConfigMatch(LPC_TIM1, &match);
 }
+
+void cfgTIM2(){
+	TIM_TIMERCFG_Type timcfg;
+	timcfg.PrescaleOption = TIM_PRESCALE_USVAL;
+	timcfg.PrescaleValue = 1000;
+	// Prescaler en 1ms
+	TIM_Init(LPC_TIM2,TIM_TIMER_MODE, &timcfg);
+
+	 TIM_MATCHCFG_Type match;
+	 match.MatchChannel = 0;
+	 match.IntOnMatch = ENABLE;
+	 match.StopOnMatch = ENABLE;
+	 match.ResetOnMatch = DISABLE;
+	 match.ExtMatchOutputType =  TIM_EXTMATCH_NOTHING;
+	 match.MatchValue = 1;
+	 //1ms por defecto
+
+	 TIM_ConfigMatch(LPC_TIM2, &match);
+}
+
+void cfgI2C(){
+	DisplayInit(MODE_400kbps, 3);
+
+	// 4 bit Init
+	Delay(50);  // Esperar >40ms
+	SendCmd(0x30);
+	Delay(5);  // Esperar >4.1ms
+	SendCmd(0x30);
+	Delay(1);  // Esperar >100us
+	SendCmd(0x30);
+	Delay(10);
+	SendCmd(0x20);  // Modo 4bit
+	Delay(10);
+
+	// Display Init
+	SendCmd(0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
+	Delay(1);
+	SendCmd(0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
+	Delay(1);
+	SendCmd(0x01);  // clear display
+	Delay(1);
+	Delay(1);
+	SendCmd(0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
+	Delay(1);
+	SendCmd(0x0F); //Display on/off control --> D = 1, C = 1 and B = 0.
+	Delay(1);
+}
+
 
 //Funcion que configura el NVIC
 void cfgNVIC(){
