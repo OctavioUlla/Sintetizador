@@ -24,6 +24,7 @@ void cfgTIM0();
 void cfgTIM1();
 void cfgTIM2();
 void cfgI2C();
+
 void makeSignals(uint32_t signals[][TRANSFERSIZE],uint32_t actualSig[TRANSFERSIZE]);
 
 

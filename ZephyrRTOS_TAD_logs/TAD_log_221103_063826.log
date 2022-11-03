@@ -1,0 +1,14 @@
+"Task Aware Debugger for GDB" version 11.6.0 (202206271353)
+(c) 2016-2022 NXP Semiconductors, Inc.
+==================================
+06:37:52.393 INFO: [ZephyrRTOS] /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/tp_final/Debug/.config file could not be read
+06:37:52.394 INFO: [TadModel] DSF session ID 10 has started.
+06:37:57.866 INFO: [TadState] TAD state changed: DEBUG_STARTED -> DEBUG_INIT_0 (RESUMED, USER_REQUEST)
+06:37:57.948 INFO: [TadState] TAD state changed: DEBUG_INIT_0 -> DEBUG_INIT_1 (SUSPENDED, SIGNAL)
+06:37:58.797 INFO: [TadState] TAD state changed: DEBUG_INIT_1 -> DEBUG_SUSPENDED (RESUMED, USER_REQUEST)
+06:37:58.883 INFO: [TadState] TAD state changed: DEBUG_SUSPENDED -> DEBUG_SUSPENDED (SUSPENDED, BREAKPOINT)
+06:38:07.231 INFO: [ZephyrRTOS] /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/tp_final/Debug/.config file could not be read
+06:38:07.232 INFO: [TadModel] DSF session ID 11 has started.
+06:38:20.468 INFO: [ZephyrRTOS] /home/ferminverdolini/Universidad/Octavo semestre/Electronica digital 3/Trabajo Final/Sintetizador/tp_final/Debug/.config file could not be read
+06:38:20.468 INFO: [TadModel] DSF session ID 12 has started.
+06:38:26.258 INFO: [TadModel] DSF session ID 10 has ended.
