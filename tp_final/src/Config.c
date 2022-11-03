@@ -162,16 +162,27 @@ void cfgTIM1(){
 	 match.ResetOnMatch = ENABLE;
 	 match.ExtMatchOutputType =  TIM_EXTMATCH_NOTHING;
 	 match.MatchValue = 50;
-	 // 100 ms
+	 // 50 ms
 	 TIM_ConfigMatch(LPC_TIM1, &match);
 }
 
 void cfgTIM2(){
 	TIM_TIMERCFG_Type timcfg;
 	timcfg.PrescaleOption = TIM_PRESCALE_USVAL;
-	timcfg.PrescaleValue = 100;
-	// Prescaler en 0.1ms
+	timcfg.PrescaleValue = 1000;
+	// Prescaler en 1ms
 	TIM_Init(LPC_TIM2,TIM_TIMER_MODE, &timcfg);
+
+	 TIM_MATCHCFG_Type match;
+	 match.MatchChannel = 0;
+	 match.IntOnMatch = ENABLE;
+	 match.StopOnMatch = ENABLE;
+	 match.ResetOnMatch = DISABLE;
+	 match.ExtMatchOutputType =  TIM_EXTMATCH_NOTHING;
+	 match.MatchValue = 1;
+	 //1ms por defecto
+
+	 TIM_ConfigMatch(LPC_TIM2, &match);
 }
 
 void cfgI2C(){
