@@ -15,8 +15,13 @@ void nextSgn(uint8_t *sgnActual,uint32_t signals[][TRANSFERSIZE]){
 }
 
 void disminuirOct(uint8_t *octActual, uint16_t notas[]){
+<<<<<<< HEAD
 	if((*octActual)+1==0){
 		(octActual)--;
+=======
+	if(*octActual=0){
+		(*octActual)--;
+>>>>>>> 68abe4a (Anda todo no rompan los huevos)
 		for(int i = 0;i<13;i++){
 			notas[i]/=2;
 		}
@@ -25,7 +30,7 @@ void disminuirOct(uint8_t *octActual, uint16_t notas[]){
 
 void aumentarOct(uint8_t *octActual, uint16_t notas[]){
 	if(*octActual<8){
-		(octActual)++;
+		(*octActual)++;
 		for(int i = 0;i<13;i++){
 			notas[i]*=2;
 		}
