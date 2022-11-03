@@ -79,7 +79,7 @@ void cfgDAC(){
 }
 
 // Funcion que configura el DMA y prende el DMA
-void cfgDMA(uint32_t* actualSig){
+void cfgDMA(uint32_t actualSig[TRANSFERSIZE]){
 	static GPDMA_LLI_Type listaDma;
 	NVIC_DisableIRQ(DMA_IRQn);
 
@@ -119,7 +119,7 @@ void cfgADC(){
 	adc.Pinnum = 24;
 	PINSEL_ConfigPin(&adc);
 	//  Se configura el ADC
-	ADC_Init(LPC_ADC,10000);
+	ADC_Init(LPC_ADC,200000);
 	ADC_ChannelCmd(LPC_ADC,0,ENABLE); // Canal par el filtro cutoff
 
 	ADC_StartCmd(LPC_ADC,ADC_START_ON_MAT01);

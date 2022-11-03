@@ -97,6 +97,10 @@ void ShowData(uint32_t frecuencia, SIGNAL_TYPE signal){
 			txtSignal = "SIERRA";
 			len = 6;
 			break;
+		case SGNSIERRAINV:
+			txtSignal = "!SIERRA";
+			len = 7;
+			break;
 		default:
 			txtSignal = "-";
 			len = 1;
