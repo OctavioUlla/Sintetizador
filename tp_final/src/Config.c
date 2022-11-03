@@ -8,7 +8,6 @@
 #include "Config.h"
 #include "Delay.h"
 #include "Display.h"
-#include "i2c.h"
 
 // Funcion que configura los puertos
 void cfgPines(){
@@ -176,32 +175,30 @@ void cfgTIM2(){
 }
 
 void cfgI2C(){
-	i2c0_init(MODE_400kbps, 3);
+	DisplayInit(MODE_400kbps, 3);
 
-	// 4 bit initialisation
-	Delay(50);  // wait for >40ms
-	sendCmd(0x30);
-	Delay(5);  // wait for >4.1ms
-	sendCmd(0x30);
-	Delay(1);  // wait for >100us
-	sendCmd(0x30);
+	// 4 bit Init
+	Delay(50);  // Esperar >40ms
+	SendCmd(0x30);
+	Delay(5);  // Esperar >4.1ms
+	SendCmd(0x30);
+	Delay(1);  // Esperar >100us
+	SendCmd(0x30);
 	Delay(10);
-	sendCmd(0x20);  // 4bit mode
+	SendCmd(0x20);  // Modo 4bit
 	Delay(10);
 
-	// dislay initialisation
-	sendCmd(0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
+	// Display Init
+	SendCmd(0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
 	Delay(1);
-	sendCmd(0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
+	SendCmd(0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
 	Delay(1);
-	sendCmd(0x01);  // clear display
+	SendCmd(0x01);  // clear display
 	Delay(1);
 	Delay(1);
-	sendCmd(0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
+	SendCmd(0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
 	Delay(1);
-	sendCmd(0x0F); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
-
-	sendData(0x48);
+	SendCmd(0x0F); //Display on/off control --> D = 1, C = 1 and B = 0.
 }
 
 
