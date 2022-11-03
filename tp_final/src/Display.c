@@ -82,23 +82,26 @@ void ShowData(uint32_t frecuencia, SIGNAL_TYPE signal){
 	Delay(2);
 
 	char* txtSignal;
+	uint8_t len;
 
 	switch(signal){
 		case SGNRECT:
 			txtSignal = "RECT";
+			len = 4;
 			break;
 		case SGNTRIANG:
 			txtSignal = "TRIANG";
+			len = 6;
 			break;
 		case SGNSIERRA:
 			txtSignal = "SIERRA";
+			len = 6;
 			break;
 		default:
 			txtSignal = "-";
+			len = 1;
 			break;
 	}
-
-	uint8_t len = sizeof(txtSignal);
 
 	for(int i = 0 ;i < len; i++){
 		SendData(txtSignal[i]);
