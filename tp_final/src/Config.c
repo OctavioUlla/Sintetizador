@@ -104,8 +104,6 @@ void cfgDMA(uint32_t* actualSig){
 
 	GPDMA_Setup(&dmacfg);
 	GPDMA_ChannelCmd(0,ENABLE);
-
-
 }
 
 //Funcion que configura el ADC
@@ -210,6 +208,7 @@ void cfgI2C(){
 	SendCmd(0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
 	Delay(1);
 	SendCmd(0x0F); //Display on/off control --> D = 1, C = 1 and B = 0.
+	Delay(1);
 }
 
 

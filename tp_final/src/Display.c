@@ -1,5 +1,6 @@
 #include <Display.h>
 #include <stdlib.h>
+#include <Delay.h>
 
 // IC2 control bits
 #define AA      (1 << 2)
@@ -18,6 +19,7 @@ uint32_t ignore_data_nack = 1;
 
 uint32_t SendBytes(uint8_t address, uint8_t* buffer, uint32_t length);
 void SendData(char data);
+char CharToDisplay(char data);
 
 void DisplayInit(uint32_t frecuencia, uint8_t intPrioridad) {
     uint32_t pclk, fdiv;
@@ -73,6 +75,66 @@ void SendCmd(char cmd){
 	SendBytes(0x27, data_t, 4);
 }
 
+void ShowData(uint32_t frecuencia, SIGNAL_TYPE signal){
+
+	//Clear
+	SendCmd(0x01);
+	Delay(2);
+
+	char* txtSignal;
+
+	switch(signal){
+		case SGNRECT:
+			txtSignal = "RECT";
+			break;
+		case SGNTRIANG:
+			txtSignal = "TRIANG";
+			break;
+		case SGNSIERRA:
+			txtSignal = "SIERRA";
+			break;
+		default:
+			txtSignal = "-";
+			break;
+	}
+
+	uint8_t len = sizeof(txtSignal);
+
+	for(int i = 0 ;i < len; i++){
+		SendData(txtSignal[i]);
+	}
+
+	//Contar digitos
+	uint32_t temp = frecuencia;
+	uint8_t digitos = 1;
+	while (temp/=10){
+		digitos++;
+	}
+
+	//Dividir digitos
+	char textFrecuencia[digitos+2];
+
+	//Hz al final
+	textFrecuencia[digitos] = 'H';
+	textFrecuencia[digitos + 1] = 'z';
+
+	while (digitos--) {
+		textFrecuencia[digitos] = 48 + frecuencia%10;
+		frecuencia/=10;
+	}
+
+	len = sizeof(textFrecuencia);
+
+	//Mover a segunda linea
+	SendCmd(0x8F - len + 1);
+	Delay(1);
+
+
+	for(int i = 0 ;i < len; i++){
+		SendData(textFrecuencia[i]);
+	}
+}
+
 void SendData(char data){
 
 	char data_u, data_l;
@@ -85,6 +147,10 @@ void SendData(char data){
 	data_t[3] = data_l|0x09;  //en=0, rs=1
 
 	SendBytes(0x27, data_t, 4);
+}
+
+char CharToDisplay(char data){
+
 }
 
 uint32_t SendBytes(uint8_t address, uint8_t* buffer, uint32_t length) {

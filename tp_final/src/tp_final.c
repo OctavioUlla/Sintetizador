@@ -22,6 +22,7 @@
 #include "Teclas.h"
 #include "Config.h"
 #include "Botones.h"
+#include "Display.h"
 
 // TODO: insert other definitions and declarations here
 
@@ -68,8 +69,6 @@ int main(void) {
 	 * requests cuando se levanta la tecla
 	 * Configurar el ADC para que cambie los valores del actualSig
 */
-
-
 
 	while(1){
 
