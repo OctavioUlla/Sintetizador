@@ -39,6 +39,7 @@ uint32_t actualSig[TRANSFERSIZE];
 // Entero para seleccionar la señal
 uint8_t sgnActual = 3;
 uint8_t octActual = 4;
+uint16_t aux[13];
 // Arreglo de las 13 notas inicializado en la 4ta Octava
 uint16_t notas[13]= {262,277,294,311,330,349,370,392,415,440,466,494,523};
 // Alpha para el filtrado del adc
@@ -121,7 +122,7 @@ void EINT3_IRQHandler(void){
 		if(GPIO_GetIntStatus(0,i,0) == ENABLE){
 			RemoveTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
-
+			ShowData(0,sgnActual);
 			GPIO_ClearInt(0,(1<<i));
 			EXTI_ClearEXTIFlag(EXTI_EINT3);
 			return;
@@ -130,7 +131,7 @@ void EINT3_IRQHandler(void){
 		else if(GPIO_GetIntStatus(0,i,1) == ENABLE){
 			InsertTecla(&stack,i);
 			UpdateDMAFrecuency(&stack,notas);
-
+			ShowData(aux[i],sgnActual);
 			GPIO_ClearInt(0,(1<<i));
 			EXTI_ClearEXTIFlag(EXTI_EINT3);
 			return;
@@ -141,7 +142,7 @@ void EINT3_IRQHandler(void){
 	if(GPIO_GetIntStatus(0,15,0)){
 		RemoveTecla(&stack,15);
 		UpdateDMAFrecuency(&stack,notas);
-		GPDMA_ChannelCmd(0,ENABLE);
+		ShowData(0,sgnActual);
 		GPIO_ClearInt(0,1<<15);
 		EXTI_ClearEXTIFlag(EXTI_EINT3);
 		return;
@@ -150,7 +151,7 @@ void EINT3_IRQHandler(void){
 	else if(GPIO_GetIntStatus(0,15,1)){
 		InsertTecla(&stack,15);
 		UpdateDMAFrecuency(&stack,notas);
-
+		ShowData(aux[12],sgnActual);
 		GPIO_ClearInt(0,1<<15);
 		EXTI_ClearEXTIFlag(EXTI_EINT3);
 		return;
@@ -166,7 +167,6 @@ void EINT3_IRQHandler(void){
 void ADC_IRQHandler(void){
 	//uint16_t pePito = ADC_ChannelGetData(LPC_ADC,0);
 	uint16_t prev_sgn = 0;
-	uint16_t aux[13];
 	static uint16_t cutoff = 0;
 	static uint16_t pitch = 0;
 
